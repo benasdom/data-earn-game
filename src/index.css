@@ -1,3 +1,4 @@
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -10,6 +11,10 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+*::-webkit-scrollbar{
+  width:1px;
 }
 .splashscreen{
   height:100vh;
@@ -133,11 +138,11 @@ button:focus-visible {
   z-index:10;
   height: 250px;
   width:250px;
-  animation:scaled 1.3s ease-out;
+  animation:scaled 2s ease-out;
 
 }
 @keyframes scaled{
-  0%,50%{
+  0%,30%{
     transform:scale(1.5) translateY(10vh);
 
   }
