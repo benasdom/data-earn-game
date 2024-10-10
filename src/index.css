@@ -23,7 +23,7 @@
   z-index: -1;
   opacity:0;
   position:absolute;
-  animation:fadeout 3s ease-out;
+  animation:fadeout 4.5s ease-out;
 }
 
 @keyframes fadeout{

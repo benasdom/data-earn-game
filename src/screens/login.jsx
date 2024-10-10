@@ -8,9 +8,10 @@ import headlogo from '../assets/headlogo.png'
 export default function Login() {
   return (
     <>
+     <div className="splashscreen">
+     </div>
     <div className="authpage">
-    <div className="splashscreen">
-    </div>
+   
 <div className="myform">
     <div className="signup">
         <div className="signuptext">signup</div>
