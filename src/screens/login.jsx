@@ -46,7 +46,9 @@ export default function Login() {
         <div className="sentence"> sign up with</div>
         <div className="logo"><img src={gool} className='gimg'/></div>
     </div>
-
+<div className="powered">
+    Powered by UnityElites
+</div>
 </div>
 
 </div>
