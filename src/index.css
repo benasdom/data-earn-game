@@ -21,10 +21,10 @@
 .splashscreen{
   height:100vh;
   width:100%;
+  padding:0px;
   background:black;
   z-index: -1;
   opacity:0;
-  display: none;
   position:absolute;
   animation:fadeout 4.5s ease-out;
 }
@@ -34,8 +34,8 @@ img,div,span,a{
 }
 
 @keyframes fadeout{
-  0%,20%{
-    display:block;
+  0%,60%{
+    display:flex;
     opacity:1;
     z-index:1;
 
@@ -73,7 +73,6 @@ h1 {
 button {
   border-radius: 8px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
@@ -255,6 +254,7 @@ margin:10px;
 
 
 }
+
   .input{
   outline:none;
   border:0px;
@@ -271,7 +271,7 @@ margin:10px;
   justify-content: space-around;
   border-radius: 10px;
   border:3px solid gold;
-  margin:5px;
+  margin-bottom:5px;
   color:white;
 }
 .font{
