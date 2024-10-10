@@ -14,7 +14,9 @@
 }
 
 *::-webkit-scrollbar{
-  width:1px;
+  width:0px;
+  fill:transparent;
+  background:transparent;
 }
 .splashscreen{
   height:100vh;
@@ -22,11 +24,13 @@
   background:black;
   z-index: -1;
   opacity:0;
+  display: none;
   position:absolute;
   animation:fadeout 4.5s ease-out;
 }
 img,div,span,a{
   user-select: none;
+ 
 }
 
 @keyframes fadeout{
