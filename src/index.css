@@ -142,11 +142,11 @@ button:focus-visible {
 
 }
 @keyframes scaled{
-  0%,30%{
+  0%{
     transform:scale(1.5) translateY(10vh);
 
   }
-  100%{
+  80%,100%{
     transform:scale(1) translateY(0vh);
   }
 }
