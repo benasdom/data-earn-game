@@ -25,6 +25,9 @@
   position:absolute;
   animation:fadeout 4.5s ease-out;
 }
+img,div,span,a{
+  user-select: none;
+}
 
 @keyframes fadeout{
   0%,20%{
