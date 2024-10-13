@@ -14,7 +14,7 @@ export default function Login() {
      </div>
 <div className="myform">
     <div className="signup">
-        <div className="signuptext">signup</div>
+        <div className="signuptext">sign up</div>
         </div>
     <div className="image">
         <img className='imgs glow huge fill' src={headlogo} alt="" srcset="" />
