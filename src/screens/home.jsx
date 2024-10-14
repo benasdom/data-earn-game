@@ -10,6 +10,8 @@ import coin from '../assets/coin.png'
 
 export default function Home() {
   const [megabites, setmegabites] = useState("900")
+  const [itemfig, setitemfig] = useState("900")
+  const [mins, setmins] = useState("90")
   return (
     <>
     <div className="homepage">
@@ -38,12 +40,14 @@ export default function Home() {
     <div className="circles"></div>
 
   </div>
-  <div className="price">🪙 watch & earn</div>
+  <div className="price"><img srcset={coin} className="topimg" /> watch & earn</div>
   </div>
   <div className="srow">
+{Array(3).fill("").map(a=>
+(
   <div className="combo"><img className='combotile' src={mine}/></div>
-  <div className="combo"><img className='combotile' src={mine}/></div>
-  <div className="combo"><img className='combotile' src={mine}/></div>
+
+))}
   </div>
   <div className="trow">
     <img src={coin} className='midcoin' alt="" srcset="" />
@@ -61,16 +65,18 @@ export default function Home() {
 <div className="vidtop">
   <img src={mine} className='vidtop' alt="" srcset="" />
 </div>
-        <div className="vidtext">
-          10
+      <div className="vidtext">
+      <div className="vidtext1">
+          {mins} mins
         </div>
+      </div>
       </div>
       <div className="viditemschild">
 <div className="vidtop2">
   <img src={play} className='vidimg' alt="" srcset="" />
 </div>
         <div className="vidtext">
-          10
+          <img src={coin} alt="" srcset="" className="small" /><div className="vidtext2">{itemfig} MB</div>
         </div>
       </div>
     </div>

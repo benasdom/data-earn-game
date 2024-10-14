@@ -204,10 +204,10 @@ button:focus-visible {
   align-items: center;
 }
   .vidgame{
-  width:49%;
+  width:48.5%;
   height:25px;
-  margin-top:5px;
-  margin-bottom:5px;
+  margin-top:7px;
+  margin-bottom:7px;
   text-align:center;
   display:flex;
   justify-content:center;
@@ -220,18 +220,18 @@ button:focus-visible {
 .fvrow{
   display: flex;
   flex-direction: row;
-  justify-content:space-around;
-  align-items: flex-start;
+  justify-content:center;
   flex-wrap: wrap;
   margin-top: 5px;
   max-height: 300px;
-  padding-bottom: 100px;
+  padding-bottom: 80px;
   overflow-y:scroll;
 }
 .viditems{
-  min-width:140px;
+  min-width:155px;
   border-radius:10px;
   margin-top:10px;
+  margin:5px;
   display:flex;
   background: #313131;
   justify-content: center;
@@ -264,7 +264,7 @@ button:focus-visible {
   object-fit: cover;
   object-position: center;
   border-radius: 50%;
-  border:5px solid #EDBC4A;
+  border:2px solid #EDBC4A;
 
 }
 .vidimg{
@@ -276,11 +276,29 @@ button:focus-visible {
 }
 .vidtext{
   display:flex;
-  justify-content: space-between;
+  justify-content:flex-end;
+  flex-direction: row;
+  height:30px;
   text-align: center;
+  align-items: flex-end;
+}
+.vidtext1,.vidtext2{
+  font-size:10px;
+  display:flex;
+  justify-content:center;
   align-items: center;
-  height:25px;
-  font-size:12px;
+  
+
+}
+.vidtext1{
+  color:#EDBC4A;
+}
+.small{
+  width:16px;
+  height:16px;
+  object-fit: cover;
+  object-position: center;
+
 }
 .ffrow{
 margin-top:3px;
@@ -330,16 +348,17 @@ border-radius:5px;
 .vid{
   font-weight:600;
   font-size: 12px;
-  width:30%;
+  width:40%;
 }
 .dots{
-  width:25%;
+  width:15%;
   font-weight:600;
   text-align:center;
   display:flex;
   font-size:40px;
-  justify-content:center;
+  justify-content:flex-end;
   align-items:center;
+
 
 }
 .circles{
@@ -351,7 +370,9 @@ border-radius:5px;
 
 }
 .price{
-  width:35%;
+  width:40%;
+  display:flex;
+  justify-content:center;
   font-size:12px;
   text-align:center;
   font-weight:600;
@@ -367,7 +388,8 @@ border-radius:5px;
   height:22px;
 }
 .topimgs{
-  height:30px;
+  height:40px;
+  width:40px;
   object-fit:cover;
   object-position: center;
 }
@@ -438,10 +460,27 @@ align-items:center;
   width:100%;
   bottom:0px;
 }
+
+.roamer{
+  position:absolute;
+    z-index:2;
+  display:flex;
+  padding:5.5%;
+  align-items: center;
+  justify-content: center;
+  border-radius:50%;
+  transform:translateY(-75%) scale(1.1) ;
+  left:7%;
+  transition:all .3s ease-in-out;
+}
+.roamed{
+  background:linear-gradient(45deg,rgb(110, 31, 255),rgb(223, 185, 255)) ;
+  transition:all .3s ease-in-out;
+
+}
 .navcontent{
 bottom:0;
 position: absolute;
-width:100%;
 left:0;
 margin-bottom: -5%;
 }
@@ -457,10 +496,7 @@ margin-bottom: -5%;
 }
 
 .activated{
-  background:linear-gradient(45deg,rgb(110, 31, 255),rgb(223, 185, 255)) !important;
   transform:translateY(-60%) scale(1.1) !important;
-
-  
 }
 
 .activated2{
@@ -505,6 +541,10 @@ margin-bottom: -5%;
   fill:rgb(35, 41, 47);
   bottom:0;
   padding:0;
+  object-position: cover;
+  object-fit:cover;
+  transition: all .3s ease-in-out;
+  
 }
 .signuptext{
 display: flex;
