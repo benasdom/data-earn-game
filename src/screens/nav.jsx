@@ -7,10 +7,10 @@ import wallet from '../assets/wallets.png'
 export default function Mynavbar () {
 const [menu, setmenu] = useState(
     [
-        {datatext:0,text:"home",img:dashboard},
-        {datatext:25,text:"earn",img:earn},
-        {datatext:50,text:"analytics",img:analytics},
-        {datatext:75,text:"wallet",img:wallet},
+        {datatext:0,text:"Home",img:dashboard},
+        {datatext:25,text:"Earn",img:earn},
+        {datatext:50,text:"Analytics",img:analytics},
+        {datatext:75,text:"Wallet",img:wallet},
     ]
 )
 
@@ -35,7 +35,7 @@ roamer.style.cssText=`left:${roam}%`
   <div className="navbar">
 <div >
 <svg className="navcontent" viewBox="1 0 98 25" xmlns="http://www.w3.org/2000/svg">
-  <path  className="paths" fill="#0070f3" d="
+  <path  className="paths" d="
     M0,0 L-100,0  q5,0,7.5,5 c0,0,0,0,0,0  q7.5,10,15,0  q2,-5,10,-5  L100,0 l0,25  L0,25  z
   "></path>
 </svg>

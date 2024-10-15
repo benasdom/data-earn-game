@@ -7,6 +7,7 @@ import wheel from '../assets/wheel.png'
 import mine from '../assets/mine.png'
 import play from '../assets/play.png'
 import coin from '../assets/coin.png'
+import coinstacked from '../assets/coinstacked.png'
 
 export default function Home() {
   const [megabites, setmegabites] = useState("900")
@@ -27,7 +28,11 @@ export default function Home() {
   <div className="coincentered">
   <div className="topcoin"><img className='topimgs' src={coin} alt="" srcset="" /></div>
   <div className="topcoin"><img className='topimgs' src={coin} alt="" srcset="" /></div>
-  <div className="topcoin">Get data by watching videos <img className='topimgs' src={wheel} alt="" srcset="" /></div>
+  <div className="topcoin"><div className="topcointxt"><div>Get Data</div> <div>By Watching Videos</div> </div>
+  <div className="topcoinimgbox">
+  <img className='ltopimg' src={wheel} alt="" srcset="" /></div>
+
+  </div>
   </div>
 
 </div>
@@ -40,7 +45,7 @@ export default function Home() {
     <div className="circles"></div>
 
   </div>
-  <div className="price"><img srcset={coin} className="topimg" /> watch & earn</div>
+  <div className="price"><img srcset={coinstacked} className="earimg" /> <div className="wearn">Watch & Earn</div></div>
   </div>
   <div className="srow">
 {Array(3).fill("").map(a=>
@@ -54,8 +59,10 @@ export default function Home() {
     <div className="money">{megabites}MB</div>
   </div>
   <div className="ffrow">
+    <div className="toproamer">
+    </div>
     <div className="vidgame">Videos</div>
-    <div className="vidgame">Games</div>
+    <div className="vidgame" onClick={(e)=>{trig(e.currentTarget)}}>Games</div>
   </div>
   <div className="fvrow">
     {Array(20).fill("").map(a=>{

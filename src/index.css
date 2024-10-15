@@ -179,7 +179,7 @@ button:focus-visible {
   width:100%;
 }
 .topbar{
-  height:50px;
+  height:60px;
   display:flex;
   flex-direction: row;
   justify-content:space-around;
@@ -205,14 +205,15 @@ button:focus-visible {
 }
   .vidgame{
   width:48.5%;
-  height:25px;
+  height:30px;
   margin-top:7px;
   margin-bottom:7px;
+  z-index:3;
   text-align:center;
   display:flex;
   justify-content:center;
   align-items: center;
-  border-radius:5px;
+  border-radius:10px;
 }
 .vidgame:first-child{
   background:rgb(163, 117, 255);
@@ -220,7 +221,7 @@ button:focus-visible {
 .fvrow{
   display: flex;
   flex-direction: row;
-  justify-content:center;
+  justify-content:space-around;
   flex-wrap: wrap;
   margin-top: 5px;
   max-height: 300px;
@@ -228,10 +229,9 @@ button:focus-visible {
   overflow-y:scroll;
 }
 .viditems{
-  min-width:155px;
+  min-width:160px;
   border-radius:10px;
   margin-top:10px;
-  margin:5px;
   display:flex;
   background: #313131;
   justify-content: center;
@@ -264,8 +264,7 @@ button:focus-visible {
   object-fit: cover;
   object-position: center;
   border-radius: 50%;
-  border:2px solid #EDBC4A;
-
+  border: 3px solid #FFC700;
 }
 .vidimg{
   height:15px;
@@ -301,10 +300,11 @@ button:focus-visible {
 
 }
 .ffrow{
+position:relative;
 margin-top:3px;
 margin-bottom:3px;
 background: #313131;
-border-radius:5px;
+border-radius:7px;
 
 
 
@@ -313,16 +313,17 @@ border-radius:5px;
   justify-content:space-between;
 }
 .combo{
-  height:70px;
+  height:80px;
   width:100px;
   display:flex;
   justify-content: center;
   align-items: center;
   background:rgb(44, 42, 42);
   border-radius: 10px;
-  border:1px solid rgb(163, 117, 255);
-  border-top:3px solid rgb(163, 117, 255);
-  border-bottom:3px solid rgb(163, 117, 255);
+  box-shadow:
+   0px -2px 2px 0px #9747FF,
+   0px 2px 2px 0px #9747FF;
+
 }
 .midcoin{
   height:40px;
@@ -331,8 +332,8 @@ border-radius:5px;
   object-fit: cover;
 }
 .money{
-  font-size:35px;
-  background:linear-gradient(#F7C44F52 15%,#EDBC4A 70%,#EDBC4A 100%);
+  font-size:40px;
+  background: linear-gradient(162.36deg, #D7951B 27.86%, #FFD054 43.22%);
   font-weight:800;
   -webkit-background-clip: text;
   background-clip: text;
@@ -341,12 +342,14 @@ border-radius:5px;
 .combotile{
   height:70%;
   width:80%;
+  object-fit:cover;
+  object-position:center;
   background:grey;
   border-radius: 10px;
   
 }
 .vid{
-  font-weight:600;
+  font-weight:800;
   font-size: 12px;
   width:40%;
 }
@@ -369,13 +372,32 @@ border-radius:5px;
   border-radius:50%;
 
 }
+.earimg{
+width:20px;
+height:20px;
+align-self:center;
+
+object-fit:cover;
+object-position:center;
+}
+.wearn{
+  text-align:center;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center
+}
 .price{
-  width:40%;
+  width:37%;
+  height:80%;
+  margin:2px;
+  border-radius:10px;
   display:flex;
   justify-content:center;
   font-size:12px;
   text-align:center;
-  font-weight:600;
+  background: linear-gradient(94.25deg, #9747FF 30.21%, #CE8BE8 89.36%);
+  font-weight:800;
 }
 .frow{
   height:40px;
@@ -410,7 +432,7 @@ align-items:center;
   justify-content: center;
   align-items: center;
   margin-bottom:5px;
-  width:75%;
+  width:40%;
   flex-direction: row;
 }
 .profile{
@@ -421,19 +443,55 @@ align-items:center;
 }
 .ttext{
   font-size:12px;
-  font-weight:600;
+  font-weight:700;
+}
+.toproamer{
+  position:absolute;
+  display:block;
+  width:50%;
+  left:0;
+  margin-left:2px;
+  margin-right:2px;
+  border-radius:10px;
+  transition:all .3s ease-in;
+  height:80%;
+  background: linear-gradient(94.25deg, #9747FF 30.21%, #CE8BE8 89.36%);
+}
+.toproameractive{
+  right:0;
+  background: linear-gradient(90deg, #A3208D 0%, #E7509B 98.5%);
 }
 .topcoin{
-  padding:5px;
   display:flex;
   justify-content:center;
   align-items:center;
   border-radius:10px;
-  max-width:150px;
-  height:40px;
-  background:linear-gradient(45deg,rgb(110, 31, 255),rgb(223, 185, 255));
+  max-width:75%;
+  height:45px;
+  min-width:45px;
+  background: linear-gradient(94.25deg, #9747FF 30.21%, #CE8BE8 89.36%);
+  
+}
+.topcointxt{
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-weight:600;
+  padding-left:10px;
+  padding-right: 10px;
   font-size:12px;
-  text-align:Center;
+  text-align:center;
+}
+.topcoinimgbox{
+  display:flex;
+  width:40px
+}
+.ltopimg{
+  height:25px;
+  width:25px;
+  object-fit: cover;
+  object-position: center;
 }
 .roundedcontent{
   display:flex;
@@ -478,6 +536,7 @@ align-items:center;
   transition:all .3s ease-in-out;
 
 }
+
 .navcontent{
 bottom:0;
 position: absolute;
@@ -497,6 +556,8 @@ margin-bottom: -5%;
 
 .activated{
   transform:translateY(-60%) scale(1.1) !important;
+  opacity:1 !important;
+
 }
 
 .activated2{
@@ -527,6 +588,7 @@ margin-bottom: -5%;
   align-items: center;
   justify-content: center;
   border-radius:50%;
+  opacity:.2;
   transform: scale(1);
   transition:all .3s ease-in-out;
   background:rgba(128, 0, 128, 0);
@@ -538,7 +600,7 @@ margin-bottom: -5%;
   object-position: center;
 }
 .paths{
-  fill:rgb(35, 41, 47);
+  fill: #232222;
   bottom:0;
   padding:0;
   object-position: cover;
