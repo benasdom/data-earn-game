@@ -574,6 +574,7 @@ transform:translate(0%);
 .roundedcontent{
   display:flex;
   flex-direction: column;
+  overflow:hidden;
   align-items:center;
   justify-content:center;
   margin-top:5px;
