@@ -8,7 +8,6 @@ import wheel from '../assets/wheel.png'
 import mine from '../assets/mine.png'
 import play from '../assets/play.png'
 import coin from '../assets/coin.png'
-import coinstacked from '../assets/coinstacked.png'
 import Gamecomponent from './gamecomponent'
 
 export default function Home() {
@@ -55,7 +54,7 @@ export default function Home() {
 
 </div>
 <div className="roundedcontent">
-{gamefloor?<Gamecomponent mine={mine} coinstacked={coinstacked} coin={coin}/>:  <Videocomponent mine={mine}/>
+{gamefloor?<Gamecomponent mine={mine} />:  <Videocomponent mine={mine}/>
 }
   <div className="ffrow">
     <div className="toproamer">

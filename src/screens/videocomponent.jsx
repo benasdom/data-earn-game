@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
+import coin from '../assets/coin.png'
+import coinstacked from '../assets/coinstacked.png'
 
 
 
-export default function Videocomponent({mine, coinstacked,coin}) {
+export default function Videocomponent({mine}) {
 
     const [megabites, setmegabites] = useState("900")
     return (
