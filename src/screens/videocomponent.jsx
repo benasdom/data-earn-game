@@ -4,9 +4,8 @@ import coinstacked from '../assets/coinstacked.png'
 
 
 
-export default function Videocomponent({mine}) {
+export default function Videocomponent({mine,megabites}) {
 
-    const [megabites, setmegabites] = useState("900")
     return (
           <>
              <div className="vidcomp">

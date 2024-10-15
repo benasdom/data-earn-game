@@ -12,6 +12,8 @@ import Gamecomponent from './gamecomponent'
 
 export default function Home() {
   const [itemfig, setitemfig] = useState("900")
+  const [megabites, setmegabites] = useState("900")
+
   const [mins, setmins] = useState("90")
   const [gamefloor, setgamefloor] = useState(false)
 
@@ -55,7 +57,7 @@ export default function Home() {
         <div className="pagecontent">
 {/* This should be a changeable component */}
 <div className="topbar">
-  <div className="profile"><img className="topimg" src={beginner} alt="" /></div>
+  <div className="profile"><img className="topimga" src={beginner} alt="" /></div>
   <div className="title"><img className="midimg" src={cyberearn} alt="" /><div className="ttext">CyberEarn</div></div>
   <div className="notice"><img className="topimg" src={notify} alt="" /></div>
 </div>
@@ -72,7 +74,7 @@ export default function Home() {
 
 </div>
 <div className="roundedcontent">
-{gamefloor?<Gamecomponent mine={mine} />:  <Videocomponent mine={mine}/>
+{gamefloor?<Gamecomponent megabites={megabites} mine={mine} />:  <Videocomponent megabites={megabites} mine={mine}/>
 }
   <div className="ffrow">
     <div className="toproamer">
