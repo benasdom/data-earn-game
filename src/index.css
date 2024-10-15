@@ -301,7 +301,6 @@ button:focus-visible {
 }
 .ffrow{
 position:relative;
-margin-top:3px;
 margin-bottom:3px;
 background: #313131;
 border-radius:7px;
@@ -457,9 +456,88 @@ align-items:center;
   height:80%;
   background: linear-gradient(94.25deg, #9747FF 30.21%, #CE8BE8 89.36%);
 }
+
+.gamecomp{
+    display:flex;
+    width:100%;
+    height:280px;
+    overflow:hidden;
+    top:0;
+    background:rgb(33, 0, 30);
+    padding:0px;
+    margin:0px;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+}
+
+.slideritems{
+  display:flex;
+  padding:0px;
+  margin:0px;
+  top:0;
+  flex-direction:row;
+  animation-delay:1s;
+  animation: slides 10s ease-in-out infinite !important;
+
+}
+
+@keyframes slides{
+  0%{
+transform:translate(0%);
+  }
+  15%,25%{
+    transform:translateX(-100%);
+
+  }
+  40%,50%{
+    transform:translateX(-200%);
+
+  }
+  60%,75%{
+    transform:translateX(-300%);
+
+  }
+  85%,100%{
+    transform:translateX(-400%)
+  }
+ 
+
+}
+.gameslider{
+  position:relative;
+  width:100%;
+  display:flex;
+  align-items:flex-start;
+  justify-content: flex-start;
+  padding:0px;
+  margin:0px;
+  top:0;
+  border-radius:50px 50px 0px 0px;
+  overflow:hidden;
+  align-items:center;
+}
+.slider{
+  top:0;
+  width:100%;
+  object-fit:cover;
+  object-position:center;
+}
+.vidcomp{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  padding-top:40px;
+
+  margin:0px;
+  width:100%;
+}
 .toproameractive{
-  right:0;
+  left:50%;
   background: linear-gradient(90deg, #A3208D 0%, #E7509B 98.5%);
+  transition:all .3s ease-in-out;
 }
 .topcoin{
   display:flex;
@@ -502,7 +580,6 @@ align-items:center;
   border-top: 3px solid #EDBC4A;
   box-shadow: 1px -20px 25px 1px #F7C44F52;
   border-radius: 50px 50px 0px 0px;
-  padding-top:40px;
   width:100%;
 
 }

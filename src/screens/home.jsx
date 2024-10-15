@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Mynavbar from './nav'
+import Videocomponent from './videocomponent'
 import cyberearn from '../assets/cyberearn.png'
 import notify from '../assets/notify.png'
 import beginner from '../assets/beginner.png'
@@ -8,12 +9,29 @@ import mine from '../assets/mine.png'
 import play from '../assets/play.png'
 import coin from '../assets/coin.png'
 import coinstacked from '../assets/coinstacked.png'
+import Gamecomponent from './gamecomponent'
 
 export default function Home() {
-  const [megabites, setmegabites] = useState("900")
   const [itemfig, setitemfig] = useState("900")
   const [mins, setmins] = useState("90")
+  const [gamefloor, setgamefloor] = useState(false)
+
+
+  const trig= ()=>{
+    setgamefloor(true)
+
+    let option=document.querySelector(".toproamer")
+     option.classList.add("toproameractive");
+      }
+
+  const untrig= ()=>{
+    setgamefloor(false)
+   let option=document.querySelector(".toproamer")
+    option.classList.remove("toproameractive");
+     }
+      
   return (
+
     <>
     <div className="homepage">
 
@@ -37,32 +55,13 @@ export default function Home() {
 
 </div>
 <div className="roundedcontent">
-  <div className="frow">
-  <div className="vid">Video Combo</div>
-  <div className="dots">
-    <div className="circles"></div>
-    <div className="circles"></div>
-    <div className="circles"></div>
-
-  </div>
-  <div className="price"><img srcset={coinstacked} className="earimg" /> <div className="wearn">Watch & Earn</div></div>
-  </div>
-  <div className="srow">
-{Array(3).fill("").map(a=>
-(
-  <div className="combo"><img className='combotile' src={mine}/></div>
-
-))}
-  </div>
-  <div className="trow">
-    <img src={coin} className='midcoin' alt="" srcset="" />
-    <div className="money">{megabites}MB</div>
-  </div>
+{gamefloor?<Gamecomponent mine={mine} coinstacked={coinstacked} coin={coin}/>:  <Videocomponent mine={mine}/>
+}
   <div className="ffrow">
     <div className="toproamer">
     </div>
-    <div className="vidgame">Videos</div>
-    <div className="vidgame" onClick={(e)=>{trig(e.currentTarget)}}>Games</div>
+    <div className="vidgame" onClick={untrig}>Videos</div>
+    <div className="vidgame" onClick={trig}>Games</div>
   </div>
   <div className="fvrow">
     {Array(20).fill("").map(a=>{
