@@ -449,8 +449,7 @@ align-items:center;
   display:block;
   width:50%;
   left:0;
-  margin-left:2px;
-  margin-right:2px;
+  margin-left:3px;
   border-radius:10px;
   transition:all .3s ease-in;
   height:80%;
@@ -515,14 +514,14 @@ transform:translate(0%);
   margin:0px;
   top:0;
   border-radius:50px 50px 0px 0px;
-  overflow:hidden;
+  overflow:clip;
   align-items:center;
 }
 .slider{
   top:0;
   width:100%;
   object-fit:cover;
-  object-position:center;
+  object-position:top center;
 }
 .vidcomp{
   display:flex;
@@ -535,9 +534,14 @@ transform:translate(0%);
   width:100%;
 }
 .toproameractive{
-  left:50%;
-  background: linear-gradient(90deg, #A3208D 0%, #E7509B 98.5%);
+  left:48%;
   transition:all .3s ease-in-out;
+}
+.gameactivated{
+  background: linear-gradient(90deg, #A3208D 0%, #E7509B 98.5%) !important;
+  transition:all .3s ease-in-out !important;
+
+
 }
 .topcoin{
   display:flex;
@@ -597,6 +601,7 @@ transform:translate(0%);
   bottom:0px;
 }
 
+
 .roamer{
   position:absolute;
     z-index:2;
@@ -610,7 +615,7 @@ transform:translate(0%);
   transition:all .3s ease-in-out;
 }
 .roamed{
-  background:linear-gradient(45deg,rgb(110, 31, 255),rgb(223, 185, 255)) ;
+  background: linear-gradient(94.25deg, #9747FF 30.21%, #CE8BE8 89.36%);
   transition:all .3s ease-in-out;
 
 }

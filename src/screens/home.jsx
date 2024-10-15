@@ -19,14 +19,32 @@ export default function Home() {
   const trig= ()=>{
     setgamefloor(true)
 
-    let option=document.querySelector(".toproamer")
+    let option=document.querySelector(".toproamer");
      option.classList.add("toproameractive");
+
+     let gameup=
+     [
+      ...document.querySelectorAll(".toproamer"),
+      ...document.querySelectorAll(".price"),
+      ...document.querySelectorAll(".topcoin"),
+      ...document.querySelectorAll(".roamed")
+    ]
+    gameup.map(a=>a.classList.add("gameactivated"))
       }
 
   const untrig= ()=>{
     setgamefloor(false)
-   let option=document.querySelector(".toproamer")
+   let option=document.querySelector(".toproamer");
     option.classList.remove("toproameractive");
+    let gameup=
+    [
+     ...document.querySelectorAll(".toproamer"),
+     ...document.querySelectorAll(".price"),
+     ...document.querySelectorAll(".topcoin"),
+     ...document.querySelectorAll(".roamed")
+   ] 
+   gameup.map(a=>a.classList.remove("gameactivated"))
+
      }
       
   return (
