@@ -4,11 +4,11 @@ import coinstacked from '../assets/coinstacked.png'
 
 
 
-export default function Videocomponent({mine,megabites,untrig}) {
+export default function Videocomponent({mine,megabites,untrig,gamefloor}) {
   useEffect(() => {
     
     return () => {
-      untrig()
+      gamefloor==false?untrig():false;
     }
   }, [])
     return (

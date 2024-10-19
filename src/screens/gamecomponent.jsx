@@ -5,12 +5,12 @@ import cute from '../assets/cute.png'
 import coin from '../assets/coin.png'
 
 
-export default function Gamecomponent({megabites,trig}) {
+export default function Gamecomponent({megabites,trig,gamefloor}) {
   useEffect(() => {
     
   
     return () => {
-      trig()
+      gamefloor?trig():false;
     }
   }, [])
   

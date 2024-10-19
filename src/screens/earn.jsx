@@ -29,7 +29,7 @@ export default function Earn({trig,untrig,gamefloor}) {
 
 </div>
 <div className="roundedcontent">
-{gamefloor?<Gamecomponent trig={trig} megabites={megabites} />:  <Videocomponent untrig={untrig} megabites={megabites} mine={mine}/>
+{gamefloor?<Gamecomponent trig={trig} gamefloor={gamefloor} megabites={megabites} />:  <Videocomponent untrig={untrig} gamefloor={gamefloor} megabites={megabites} mine={mine}/>
 }
   <div className="ffrow">
     <div className="toproamer">

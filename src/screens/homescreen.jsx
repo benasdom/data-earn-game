@@ -18,7 +18,7 @@ useEffect(() => {
   
     let usedup=((gbremaining/gbcurvetotal)*100);
     setgbused(usedup)
-    let cclast=document.querySelector(".cc:nth-child(2)");
+    let cclast=[...document.querySelectorAll(".cc")][1];
     let dotlast=document.querySelector(".dot");
   return () => {
 

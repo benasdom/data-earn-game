@@ -1016,6 +1016,8 @@ z-index:2;
   transition:all .3s ease-in;
   height:80%;
   background: linear-gradient(94.25deg, #9747FF 30.21%, #CE8BE8 89.36%);
+  transition:all .3s ease-in-out;
+
 }
 
 .gamecomp{
