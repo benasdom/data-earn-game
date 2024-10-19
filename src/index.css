@@ -933,13 +933,20 @@ align-items:center;
   stroke:#FFC700;
   stroke-dasharray: 440px;
   stroke-dashoffset: calc(440px - (440 * var(--numb)) / 100);
-  transition:all 1s ease-out;
+  animation: animate2 1s ease-in-out forwards;
 }
-.percentage{
-  transition:all 1s ease-out;
-  stroke-dashoffset: calc(440px - (440 * var(--numb)) / 100);
+@keyframes animate2 {
+  0%{
+    stroke-dashoffset: 440px;
 
+  }
+  100%{
+    stroke-dashoffset: calc(440px - (440 * var(--numb)) / 100);
+
+  }
+  
 }
+
 .dot{
   position: absolute;
   inset:5px;
@@ -947,10 +954,21 @@ align-items:center;
   height:140px;
   width:140px;
   z-index: 2;
-  transition:all 1s ease-out;
-  transform: rotate(calc(3.6deg * var(--ang)));
+  animation: animate 1s ease-in-out forwards;
 
 }
+@keyframes animate {
+  0%{
+  transform: rotate(0);
+
+  }
+  100%{
+    transform: rotate(calc(3.6deg * var(--ang)));
+
+  }
+  
+}
+
 .dot::before{
 content: '';
 position: absolute;
