@@ -933,7 +933,10 @@ align-items:center;
   stroke:#FFC700;
   stroke-dasharray: 440px;
   stroke-dashoffset: calc(440px - (440 * var(--numb)) / 100);
+}
+.cclast{
   animation: animate2 1s ease-in-out forwards;
+
 }
 @keyframes animate2 {
   0%{
@@ -954,6 +957,9 @@ align-items:center;
   height:140px;
   width:140px;
   z-index: 2;
+
+}
+.dotlast{
   animation: animate 1s ease-in-out forwards;
 
 }

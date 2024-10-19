@@ -16,10 +16,15 @@ export default function Homescreen() {
 
 useEffect(() => {
   
-
-  return () => {
     let usedup=((gbremaining/gbcurvetotal)*100);
     setgbused(usedup)
+    let cclast=document.querySelector(".cc:nth-child(2)");
+    let dotlast=document.querySelector(".dot");
+  return () => {
+
+
+    cclast?.classList.add("cclast")
+    dotlast?.classList.add("dotlast")
 
   }
 }, [])
