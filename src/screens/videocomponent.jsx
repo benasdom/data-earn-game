@@ -1,11 +1,16 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import coin from '../assets/coin.png'
 import coinstacked from '../assets/coinstacked.png'
 
 
 
-export default function Videocomponent({mine,megabites}) {
-
+export default function Videocomponent({mine,megabites,untrig}) {
+  useEffect(() => {
+    
+    return () => {
+      untrig()
+    }
+  }, [])
     return (
           <>
              <div className="vidcomp">

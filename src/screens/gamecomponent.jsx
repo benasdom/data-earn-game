@@ -1,11 +1,20 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import image from '../assets/image.png'
 import samurai from '../assets/samurai.png'
 import cute from '../assets/cute.png'
 import coin from '../assets/coin.png'
 
 
-export default function Gamecomponent({mine,megabites}) {
+export default function Gamecomponent({megabites,trig}) {
+  useEffect(() => {
+    
+  
+    return () => {
+      trig()
+    }
+  }, [])
+  
+  
   return (
     <>
     <div className="gamecomp">

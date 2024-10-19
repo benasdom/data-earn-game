@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import './App.css'
 import Login from './screens/login'
-import Home from './screens/home'
+import Platform from './screens/platform'
+import Verfiy from './screens/verfiy'
 
 
 function App() {
@@ -10,7 +11,9 @@ function App() {
   return (
  <>
  {/* <Login/> */}
- <Home/>
+ <Platform/>
+ 
+ {/* <Verfiy/> */}
  </>
   )
 }
