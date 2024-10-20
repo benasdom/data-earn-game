@@ -20,13 +20,9 @@ useEffect(() => {
     setgbused(usedup)
     let cclast=[...document.querySelectorAll(".cc")][1];
     let dotlast=document.querySelector(".dot");
-  return () => {
-
-
     cclast?.classList.add("cclast")
     dotlast?.classList.add("dotlast")
 
-  }
 }, [])
 
   return (
