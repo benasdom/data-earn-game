@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Topbar from './topbar'
-import beginner from '../assets/beginner.png'
 import ref from '../assets/ref.png'
+import wayne from '../assets/wayne.jpg'
 
 
 export default function Referals() {
@@ -35,9 +35,12 @@ const [refered, setrefered] = useState(10)
  {Array(10).fill("").map(a=>(
    <div className='friendbox'>
     <div className="frienditem1">
-        <img className='refimg' src={beginner} alt="" srcset="" />
+        <img className='refimg' src={wayne} alt="" srcset="" />
     </div>
-    <div className="frienditem2">Ernest</div>
+    <div className="frienditem2">
+        <div className='item1f'>Emmanuel</div>
+        <div className='item2f'>13th May 2024</div>
+    </div>
     <div className="frienditem3">30mb today</div>
    </div>
  ))}

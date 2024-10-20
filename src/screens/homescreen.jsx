@@ -5,7 +5,7 @@ import shovel from '../assets/shovel.png'
 
 
 export default function Homescreen() {
-    const [username, setusername] = useState("Ernest")
+    const [username, setusername] = useState("Benjamin")
     const [dated, setdated] = useState("Sat 9 October")
     const [earnedtoday, setearnedtoday] = useState("900")
     const [totalwatched, settotalwatched] = useState("850")
