@@ -462,9 +462,9 @@ height:100px;
   overflow-y:scroll;
 }
 .gameitems{
-  min-width:160px;
+  min-width:150px;
   border-radius:10px;
-  margin-top:10px;
+  margin-top:15px;
   display:flex;
   background: #313131;
   justify-content: center;
@@ -493,9 +493,9 @@ height:100px;
   display:flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom:10px;
-  padding-top:10px;
-  height:160px;
+  padding-bottom:5px;
+  padding-top:5px;
+  height:150px;
   justify-content: center;
 
 }
@@ -523,14 +523,14 @@ height:100px;
 }
 .gamevidtop{
   width:100%;
-  height:60px;
+  height:65px;
   border-radius:10px;
   object-fit: cover;
   object-position: center;
 }
 .gametop{
   display:flex;
-  width:100%;
+  width:130px;
   border-radius:10px;
   justify-content:center;
   align-items:center;
@@ -678,6 +678,154 @@ height:100px;
   justify-content: center;
   align-items: center;
  }
+ .reffirstboxtop{
+  border-radius:30px;
+  margin-top: 10px;
+  width:calc(100%-20px);
+  background: linear-gradient(107.68deg, #2C41FD 2.26%, #11C5FF 93.75%);
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding:20px;
+ }
+ .reffirst{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+ }
+ .rfirstchild{
+  display:flex;
+  flex-direction:column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height:120px;
+  width:70%;
+ }
+ .rftext{
+  color:white;
+  display:inline-flex;
+  padding-bottom:10px;
+  width:100%;
+  font-family: Inter;
+ font-size: 24px;
+ font-weight: 700;
+ line-height:50.05px;
+ text-align: left;
+
+
+ }
+ .rftext2{
+  display:inline-block;
+  font-family: Inter;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 13.31px;
+  text-align: left;
+
+
+ }
+ .rfirstchild2{
+  display:flex;
+  font-size:7px;
+  width:30%;
+  height:120px;
+  justify-content:center;
+ }
+ .rfchildimg{
+  width: 122px;
+  height: 68px;
+  top: 121px;
+  left: 238px;
+  gap: 0px;
+  opacity: 0px;
+  object-fit: cover;
+  object-position: center;
+ }
+ .refthird{
+ max-height:200px;
+ display: flex;
+ justify-content: center;
+ overflow-y: scroll;
+ align-items:center;
+ padding:10px;
+ width:100%;
+ padding-bottom:100px;
+ margin-top:10px;
+ flex-direction:column;
+ }
+.friendbox{
+  width:calc(100% - 20px);
+  padding:10px;
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius:10px;
+  background:#1a1a1a;
+  margin-top:10px;
+}
+.frienditem1{
+  display:flex;
+  align-items: center;
+  justify-content:center;
+  border-radius: 10px;
+  width:10%;
+
+
+}
+.frienditem2{
+  display:flex;
+  text-align:left;
+  width:65%;
+  color:#D7951B;
+  padding:5px;
+  height:60px;
+  font-size: 15px;
+
+
+}
+.frienditem3{
+  display:flex;
+  justify-content:center;
+  text-align:center;
+  width:10%;
+  color:white;
+  padding-top:5px;
+  height:60px;
+  font-size: 15px;}
+
+.refimg{
+  width:60px;
+  height:60px;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 10px;
+  background:#444444;
+}
+
+
+.refsec{
+  margin-top:20px;
+  color: #717171;
+  font-size:12px;
+  width: 100%;
+  font-weight:600;
+  text-align: left;
+}
+ .refcode{
+  width:90%;
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  background:#1a1a1a;
+  width: 277px;
+height: 51px;
+border-radius:15px;
+
+ }
+
+
 .hellodate{
   height:20px;
   font-size: 12px;
@@ -922,7 +1070,7 @@ align-items:center;
   width:100%;
   height:100%;
   fill:none;
-  stroke-width: 2;
+  stroke-width: 4;
   stroke:#444444;
   transform: translate(5px,5px);
 
@@ -935,7 +1083,7 @@ align-items:center;
   stroke-dashoffset: calc(440px - (440 * var(--numb)) / 100);
 }
 .cclast{
-  animation: animate2 1s ease-in-out forwards;
+  animation: animate2 2s ease-in-out forwards;
 
 }
 @keyframes animate2 {
@@ -960,7 +1108,7 @@ align-items:center;
 
 }
 .dotlast{
-  animation: animate 1s ease-in-out forwards;
+  animation: animate 2s ease-in-out forwards;
 
 }
 @keyframes animate {
@@ -983,12 +1131,12 @@ left:50%;
 transform: translateX(-50%);
 width:7px;
 height:7px;
-background:black;
+background:#1a1a1a;
 border:3px solid #EDBC4A;
 box-shadow: 
 0px 0px 10px #EDBC4A,
 0px 0px 10px #EDBC4A,
-0 0 30px #EDBC4A;
+0 0 10px 1px rgb(255, 244, 213);
 border-radius: 50%;
 }
 .notice::after{
@@ -1149,7 +1297,7 @@ transform:translate(0%);
 .roundedcontent{
   display:flex;
   flex-direction: column;
-  overflow:hidden;
+  overflow:clip;
   align-items:center;
   justify-content:center;
   margin-top:5px;

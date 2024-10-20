@@ -5,7 +5,7 @@ import shovel from '../assets/shovel.png'
 
 
 export default function Homescreen() {
-    const [username, setusername] = useState("Benjamin")
+    const [username, setusername] = useState("Ernest")
     const [dated, setdated] = useState("Sat 9 October")
     const [earnedtoday, setearnedtoday] = useState("900")
     const [totalwatched, settotalwatched] = useState("850")
@@ -23,7 +23,7 @@ useEffect(() => {
     cclast?.classList.add("cclast")
     dotlast?.classList.add("dotlast")
 
-}, [])
+}, [gbused])
 
   return (
 <>
