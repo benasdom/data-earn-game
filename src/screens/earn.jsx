@@ -8,8 +8,37 @@ import Gamebottom from './gamebottom'
 import Vidbottom from './vidbottom'
 import Topbar from './topbar'
 
-export default function Earn({trig,untrig,gamefloor}) {
+export default function Earn() {
     const [megabites, setmegabites] = useState("900")
+const [gamefloor, setgamefloor] = useState(false)
+
+let gameup=
+[
+ ...document.querySelectorAll(".toproamer"),
+ ...document.querySelectorAll(".price"),
+ ...document.querySelectorAll(".topcoin"),
+ ...document.querySelectorAll(".roamed")
+]
+    const trig= ()=>{
+        setgamefloor(true)
+
+        let optiona=document.querySelector(".toproamer");
+        gamefloor?optiona?.classList.add("toproameractive"):false;
+       gamefloor?gameup?.map(a=>a.classList.add("gameactivated")):false
+          }
+      
+      const untrig= ()=>{
+        setgamefloor(false)
+       let optionb=document.querySelector(".toproamer");
+        optionb?.classList.remove("toproameractive");
+       gameup?.map(a=>a.classList.remove("gameactivated"));
+      
+         }
+      
+      
+useEffect(() => {
+    gamefloor?trig():untrig()
+}, [gamefloor])
 
 
   
