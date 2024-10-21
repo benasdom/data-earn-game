@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { memo, useEffect, useState } from 'react'
 import Videocomponent from './videocomponent'
 import wheel from '../assets/wheel.png'
 import mine from '../assets/mine.png'
@@ -8,7 +8,7 @@ import Gamebottom from './gamebottom'
 import Vidbottom from './vidbottom'
 import Topbar from './topbar'
 
-export default function Earn() {
+function Earn() {
     const [megabites, setmegabites] = useState("900")
 const [gamefloor, setgamefloor] = useState(false)
 
@@ -72,3 +72,4 @@ useEffect(() => {
 </div>
         </div>  )
 }
+export default memo(Earn)

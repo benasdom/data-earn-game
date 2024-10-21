@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { memo, useEffect, useState } from 'react'
 import Topbar from './topbar'
 import coinstacked from '../assets/coinstacked.png'
 import shovel from '../assets/shovel.png'
 
 
-export default function Homescreen() {
+function Homescreen() {
     const [username, setusername] = useState("Benjamin")
     const [dated, setdated] = useState("Sat 9 October")
     const [earnedtoday, setearnedtoday] = useState("900")
@@ -94,3 +94,4 @@ useEffect(() => {
 </>
 )
 }
+export default memo(Homescreen)

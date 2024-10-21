@@ -2,10 +2,12 @@ import React, { useState } from 'react'
 import Topbar from './topbar'
 import ref from '../assets/ref.png'
 import wayne from '../assets/wayne.jpg'
+import copied from '../assets/copied.png'
 
 
 export default function Referals() {
 const [refered, setrefered] = useState(10)
+const [reflink, setreflink] = useState("https://cyberpay.com/34rjokresa")
   return (
     <>
 
@@ -26,7 +28,17 @@ const [refered, setrefered] = useState(10)
     <img className='rfchildimg' src={ref} alt="" />
 </div>
 </div>
-<div className="refcode"> copy</div>
+<div className="refcode"> 
+  <div className="reflink">
+    <div className="reflink0">
+      Referal Code
+    </div>
+    <div className="reflink1">
+    {reflink}
+    </div>
+  </div>
+  <div className="copypng"><img className="copypngimg" src={copied}/></div>
+</div>
 </div>
 <div className="refsec">
     {`You have (${refered}) referals`}
