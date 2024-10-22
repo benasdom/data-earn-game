@@ -20,7 +20,7 @@ const componentrendered=(option)=>{
     <div className="homepage">
 
         {
-          rendered=="Home"?<Homescreen/>
+          rendered=="Home"?<Homescreen setrendered={setrendered} rendered={rendered}/>
         :(rendered=="Earn"?<Earn/>
         :(rendered=="Referals"?<Referals/>
         :(rendered=="Stats"?<Stats/>

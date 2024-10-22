@@ -4,7 +4,7 @@ import coinstacked from '../assets/coinstacked.png'
 import shovel from '../assets/shovel.png'
 
 
-function Homescreen() {
+function Homescreen({setrendered,rendered}) {
     const [username, setusername] = useState("Benjamin")
     const [dated, setdated] = useState("Sat 9 October")
     const [earnedtoday, setearnedtoday] = useState("900")
@@ -13,7 +13,6 @@ function Homescreen() {
     const [gbused, setgbused] = useState(0)
     const [gbremaining, setgbremaining] = useState(1.8)
     const [mounted, setmounted] = useState(false)
-
 
 useEffect(() => {
     return ()=>{
@@ -30,9 +29,22 @@ useEffect(() => {
 useEffect(() => {
     setmounted(!mounted)
 
-}, [gbused])
+}, [gbused,rendered])
 
-
+const earnpage=()=>{
+setrendered("Earn")
+let listed=[...document.querySelectorAll(".navitems")];
+let option=listed[1]
+let roamer=document.querySelector(".roamer");
+listed.map(a=>a.children[0].classList.remove("activated"))
+listed.map(a=>a.children[1].classList.remove("activated2"))
+option.children[0].classList.add("activated")
+option.children[1].classList.add("activated2")
+let roam=(parseInt(32));
+document.querySelector(".paths").setAttribute("d",`M0,0 L${22},0  q5,0,7.5,5 c0,0,0,0,0,0  q7.5,10,15,0  q2,-5,10,-5  L100,0 l0,25  L0,25  z`)
+roamer.classList.add("roamed")
+roamer.style.cssText=`left:${roam}%`
+}
   return (
 <>
 <div className="pagecontent">
@@ -60,7 +72,7 @@ useEffect(() => {
         <div className="earnsub"><span className="td">
         {earnedtoday}Mb
             </span > earned today</div>
-        <div className="startearn">start earning</div>
+        <div className="startearn" onClick={earnpage}>start earning</div>
     </div>
     <div className="earnleft turns">
         <div className="dot" style={{'--ang':gbused}}></div>
