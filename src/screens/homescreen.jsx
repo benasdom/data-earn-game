@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useState } from 'react'
+import React, { memo, useEffect, useLayoutEffect, useState } from 'react'
 import Topbar from './topbar'
 import coinstacked from '../assets/coinstacked.png'
 import shovel from '../assets/shovel.png'
@@ -16,21 +16,21 @@ function Homescreen() {
 
 
 useEffect(() => {
-    let usedup=((gbremaining/gbcurvetotal)*100);
+    return ()=>{
+        let usedup=((gbremaining/gbcurvetotal)*100);
     setgbused(usedup)
-  alert(usedup+"-"+gbused+"-")
-
     let cclast=[...document.querySelectorAll(".cc")][1];
     let dotlast=document.querySelector(".dot");
     cclast?.classList.add("cclast")
     dotlast?.classList.add("dotlast")
+    }
 
-}, [gbused,mounted])
+}, [mounted])
 
 useEffect(() => {
     setmounted(!mounted)
 
-}, [])
+}, [gbused])
 
 
   return (
