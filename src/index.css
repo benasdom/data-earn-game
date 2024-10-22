@@ -805,6 +805,18 @@ height:100px;
   padding:5px;
 }
   
+.strkimg{
+  height:23px;
+  width:23px;
+  object-fit: cover;
+  object-position: center;
+}
+.streak{
+  position:absolute;
+  margin-left: 20px;
+  color:white;
+  font-size: 13px;
+}
 
 .refimg{
   width:80px;
@@ -1069,6 +1081,18 @@ object-position:center;
   background: linear-gradient(94.25deg, #9747FF 30.21%, #CE8BE8 89.36%);
   font-weight:800;
 }
+
+.statsvg{
+  mix-blend-mode:overlay;
+}
+.statpath1{
+  fill:#26245061;
+  
+}
+.statpath2{
+  stroke: #262450;
+  stroke-width: 5px;
+}
 .frow{
   height:40px;
   background: #313131;
@@ -1138,6 +1162,9 @@ align-items:center;
 }
 .cclast{
   animation: animate2 2s ease-in-out forwards;
+  -webkit-animation: animate2 2s ease-in-out forwards;
+  -moz-animation: animate2 2s ease-in-out forwards;
+  -o-animation: animate2 2s ease-in-out forwards;
 
 }
 @keyframes animate2 {
@@ -1147,6 +1174,39 @@ align-items:center;
   }
   100%{
     stroke-dashoffset: calc(440px - (440 * var(--numb)) / 100);
+
+  }
+  
+}
+@-webkit-keyframes animate2 {
+  0%{
+    -webkit-stroke-dashoffset: 440px;
+
+  }
+  100%{
+    -webkit-stroke-dashoffset: calc(440px - (440 * var(--numb)) / 100);
+
+  }
+  
+}
+@-moz-keyframes animate2 {
+  0%{
+    -moz-stroke-dashoffset: 440px;
+
+  }
+  100%{
+    -moz-stroke-dashoffset: calc(440px - (440 * var(--numb)) / 100);
+
+  }
+  
+}
+@-o-keyframes animate2 {
+  0%{
+    -o-stroke-dashoffset: 440px;
+
+  }
+  100%{
+    -o-stroke-dashoffset: calc(440px - (440 * var(--numb)) / 100);
 
   }
   
@@ -1163,18 +1223,14 @@ align-items:center;
 }
 .dotlast{
   animation: animate 2s ease-in-out forwards;
+  -webkit-animation: animate 2s ease-in-out forwards;
+  -moz-animation: animate 2s ease-in-out forwards;
+  -o-animation: animate 2s ease-in-out forwards;
 
 }
 @keyframes animate {
-  0%{
-  transform: rotate(0);
-
-  }
-  100%{
-    transform: rotate(calc(3.6deg * var(--ang)));
-
-  }
-  
+  0%{transform: rotate(0);}
+  100%{transform: rotate(calc(3.6deg * var(--ang)));}
 }
 
 .dot::before{
