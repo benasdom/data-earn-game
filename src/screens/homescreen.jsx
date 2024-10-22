@@ -16,7 +16,7 @@ function Homescreen() {
 
 
 useEffect(() => {
-  
+  alert(usedup)
     let usedup=((gbremaining/gbcurvetotal)*100);
     setgbused(usedup)
     let cclast=[...document.querySelectorAll(".cc")][1];
