@@ -12,6 +12,7 @@ function Homescreen() {
     const [gbcurvetotal, setgbcurvetotal] = useState(2)
     const [gbused, setgbused] = useState(0)
     const [gbremaining, setgbremaining] = useState(1.8)
+    const [mounted, setmounted] = useState(false)
 
 
 useEffect(() => {
@@ -23,7 +24,13 @@ useEffect(() => {
     cclast?.classList.add("cclast")
     dotlast?.classList.add("dotlast")
 
-}, [gbused])
+}, [gbused,mounted])
+
+useEffect(() => {
+    setmounted(!mounted)
+
+}, [])
+
 
   return (
 <>
