@@ -16,9 +16,10 @@ function Homescreen() {
 
 
 useEffect(() => {
-  alert(usedup)
     let usedup=((gbremaining/gbcurvetotal)*100);
     setgbused(usedup)
+  alert(usedup+"-"+gbused+"-")
+
     let cclast=[...document.querySelectorAll(".cc")][1];
     let dotlast=document.querySelector(".dot");
     cclast?.classList.add("cclast")
