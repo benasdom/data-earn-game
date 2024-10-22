@@ -743,14 +743,14 @@ height:100px;
   object-position: center;
  }
  .refthird{
- max-height:200px;
+ max-height:250px;
  display: flex;
  justify-content: center;
  overflow-y: scroll;
  align-items:center;
  padding:10px;
  width:100%;
- padding-bottom:100px;
+ padding-bottom:50px;
  margin-top:10px;
  flex-direction:column;
  }
@@ -1162,9 +1162,6 @@ align-items:center;
 }
 .cclast{
   animation: animate2 2s ease-in-out forwards;
-  -webkit-animation: animate2 2s ease-in-out forwards;
-  -moz-animation: animate2 2s ease-in-out forwards;
-  -o-animation: animate2 2s ease-in-out forwards;
 
 }
 @keyframes animate2 {
@@ -1178,39 +1175,7 @@ align-items:center;
   }
   
 }
-@-webkit-keyframes animate2 {
-  0%{
-    -webkit-stroke-dashoffset: 440px;
 
-  }
-  100%{
-    -webkit-stroke-dashoffset: calc(440px - (440 * var(--numb)) / 100);
-
-  }
-  
-}
-@-moz-keyframes animate2 {
-  0%{
-    -moz-stroke-dashoffset: 440px;
-
-  }
-  100%{
-    -moz-stroke-dashoffset: calc(440px - (440 * var(--numb)) / 100);
-
-  }
-  
-}
-@-o-keyframes animate2 {
-  0%{
-    -o-stroke-dashoffset: 440px;
-
-  }
-  100%{
-    -o-stroke-dashoffset: calc(440px - (440 * var(--numb)) / 100);
-
-  }
-  
-}
 
 .dot{
   position: absolute;
@@ -1223,11 +1188,9 @@ align-items:center;
 }
 .dotlast{
   animation: animate 2s ease-in-out forwards;
-  -webkit-animation: animate 2s ease-in-out forwards;
-  -moz-animation: animate 2s ease-in-out forwards;
-  -o-animation: animate 2s ease-in-out forwards;
 
 }
+
 @keyframes animate {
   0%{transform: rotate(0);}
   100%{transform: rotate(calc(3.6deg * var(--ang)));}

@@ -9,9 +9,9 @@ export default function Topbar() {
   const [streakscore, setstreakscore] = useState(0)
   return (
     <>
-    <div className="topbar">
+  <div className="topbar">
   <div className="profile"><img className="topimga" src={beginner} alt="" /></div>
-  <div className="title"><img className="midimg" src={cyberearn} alt="" /><div className="ttext">CyberEarn<span className='streak'><img src={streak} className='strkimg'/>{streakscore}</span></div></div>
+  <div className="title"><img className="midimg" src={cyberearn} alt="" /><div className="ttext">CyberEarn<span title='streak score' className='streak'><img src={streak} className='strkimg'/>{streakscore}</span></div></div>
   <div className="notice"><img className="topimg" src={notify} alt="" /></div>
 </div>
     </>
