@@ -37,7 +37,7 @@ let gameup=
       
       
 useEffect(() => {
-    return ()=>{gamefloor?trig():untrig()}
+      gamefloor?trig():untrig()
 }, [gamefloor])
 
 
