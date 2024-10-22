@@ -27,7 +27,7 @@ let componentme=option.children[1].textContent;
 componentrendered(componentme)
 let pathfollow = option.dataset.text;
 let roam=(parseInt(pathfollow)+7);
-document.querySelector(".paths").setAttribute("d",`M0,0 L${pathfollow-3},0  q5,0,7.5,5 c0,0,0,0,0,0  q7.5,10,15,0  q2,-5,10,-5  L100,0 l0,25  L0,25  z`)
+document.querySelector(".paths").setAttribute("d",`M0,0 L${pathfollow-1.9},0  q5,0,7.5,5 c0,0,0,0,0,0  q7.5,10,15,0  q2,-5,10,-5  L100,0 l0,25  L0,25  z`)
 roamer.classList.add("roamed")
 roamer.style.cssText=`left:${roam}%`
 }
