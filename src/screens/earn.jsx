@@ -17,7 +17,6 @@ let gameup=
  ...document.querySelectorAll(".toproamer"),
  ...document.querySelectorAll(".price"),
  ...document.querySelectorAll(".topcoin"),
- ...document.querySelectorAll(".roamed")
 ]
     const trig= ()=>{
         setgamefloor(true)

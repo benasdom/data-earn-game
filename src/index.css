@@ -1502,7 +1502,8 @@ transform:translate(0%);
   position:absolute;
     z-index:2;
   display:flex;
-  padding:5.5%;
+  width:11%;
+  aspect-ratio: 1/1;
   align-items: center;
   justify-content: center;
   border-radius:50%;
@@ -1513,7 +1514,8 @@ transform:translate(0%);
 .roamed{
   transition:all .3s ease-in-out;
   /* background: linear-gradient(94.25deg, #9747FF 30.21%, #CE8BE8 89.36%); */
-border:1.5px solid white;
+  border:1.5px solid white;
+  backdrop-filter: blur(.4rem);
 
 }
 
