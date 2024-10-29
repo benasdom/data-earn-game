@@ -61,8 +61,22 @@ body {
   min-width: 320px;
   min-height: 100vh;
   padding:0;
-  background:rgb(14, 14, 16);
+  background:black;
 
+}
+.myform::before{
+  content:"";
+  position:absolute;
+  top:0;
+  width: 100%;
+  aspect-ratio: 1/.87;
+  user-select:none;
+  pointer-events:none;
+  background: #181A20;
+  border-radius: 0px 0px 30px 30px;
+  border-bottom: 2px solid #EDBC4A;
+  z-index:-1;
+  
 }
 
 h1 {
@@ -107,7 +121,6 @@ button:focus-visible {
   justify-content: center;
   align-items: center;
   width:100%;
-  background:black;
 }
 .myform{
   display:flex;
@@ -149,7 +162,7 @@ button:focus-visible {
   z-index:10000;
   height: 250px;
   width:250px;
-  animation:scaled 2s ease-out;
+  animation:scaled .6s ease-out;
 
 }
 @keyframes scaled{
@@ -1519,6 +1532,40 @@ transform:translate(0%);
 
 }
 
+.errorbox{
+	position: fixed;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  flex-direction:column;
+ 	opacity: 1;
+	top:0;
+	margin-top: 0;
+  z-index:2000000;
+  user-select: none;
+  pointer-events: none;
+	transform: translateY(0px);
+
+
+}
+
+
+	
+.errors{
+	display: flex;
+	align-self: center;
+	padding:15px;
+	font-size: 12px;
+	color:rgb(255, 204, 18);
+	background:rgb(26, 32, 45);
+  background:rgb(55, 55, 55);
+	justify-content: center;
+	align-items: center;
+	text-transform: uppercase;
+	border-radius: 10px;
+	min-width: 500px;
+}
+
 .navcontent{
 bottom:0;
 position: absolute;
@@ -1617,6 +1664,17 @@ border:1px solid rgba(218, 165, 32, 0.2);
 box-shadow:
  2px 2px 3px rgba(218, 165, 32, 0.485);
 margin:10px;
+animation:hide 6s linear forwards;
+}
+@keyframes hide {
+  0%{
+    visibility:hidden;
+
+  }
+  100%{
+    visibility: visible;
+  }
+  
 }
 .imgtext{
   text-align: center;

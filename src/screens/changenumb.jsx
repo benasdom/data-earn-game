@@ -1,7 +1,15 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
-export default function Changenumb() {
+export default function Changenumb({setchangenum,changenum}) {
 const [mobilenum, setmobilenum] = useState("0552222222")
+const confirmnumb=()=>{
+    setchangenum(false)
+
+}
+useEffect(() => {
+
+}, [changenum])
+
   return (
       <div className="changenum">
             <div className="phonebox">
@@ -21,7 +29,7 @@ const [mobilenum, setmobilenum] = useState("0552222222")
                         <div className="leftcontent">233</div></div>
                     <div className="right"><input type="text" placeholder="Enter phone" className='vernuminput'/></div>
                 </div>
-            <div className="sendbtn">
+            <div className="sendbtn" onClick={confirmnumb}>
                 <span>send</span>
             </div>
             </div>

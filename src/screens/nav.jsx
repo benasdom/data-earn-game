@@ -44,21 +44,15 @@ roamer.style.cssText=`left:${roam}%`
 </div>
 <div className="naved">
   <div className="roamer"></div>
-    {menu.map((a,b)=>{
-   return b==0?(
-     <div className="navitems" key={b+""} onClick={(e)=>{activate(e.currentTarget)}} data-text={a.datatext} onLoad={(e)=>{activate(e.currentTarget)}}>
-    <div className="navicon"><img className='imgicon' src={a.img} alt="" srcset="" /></div>
-    <div className="navtext">{a.text}</div>
-</div>
-):
-(
-    <div className="navitems" key={b+""} data-text={a.datatext} onClick={(e)=>{activate(e.currentTarget)}}>
+    {menu.map((a,b)=>
+  
+ <div className="navitems" key={b+""} data-text={a.datatext} onClick={(e)=>{activate(e.currentTarget)}}>
     <div className="navicon"><img className='imgicon' src={a.img} alt="" srcset="" /></div>
     <div className="navtext">{a.text}</div>
 </div>
 
-)
-    })}
+
+    )}
 
 </div>
         </div>

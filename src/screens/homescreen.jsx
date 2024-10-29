@@ -28,6 +28,20 @@ useEffect(() => {
 
 useEffect(() => {
     setmounted(!mounted)
+    if(rendered=="Home"){
+            let listed=[...document.querySelectorAll(".navitems")];
+            let option=listed[0]
+            let roamer=document.querySelector(".roamer");
+            listed.map(a=>a.children[0].classList.remove("activated"))
+            listed.map(a=>a.children[1].classList.remove("activated2"))
+            option.children[0].classList.add("activated")
+            option.children[1].classList.add("activated2")
+            let roam=(parseInt(7));
+            document.querySelector(".paths").setAttribute("d",`M0,0 L${(0-1.9)},0  q5,0,7.5,5 c0,0,0,0,0,0  q7.5,10,15,0  q2,-5,10,-5  L100,0 l0,25  L0,25  z`)
+            roamer.classList.add("roamed")
+            roamer.style.cssText=`left:${roam}%`
+            
+    }else{false}
 
 }, [gbused,rendered])
 

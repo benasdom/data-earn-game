@@ -5,8 +5,8 @@ import google from '../assets/google.png'
 import gool from '../assets/gool.png'
 import headlogo from '../assets/headlogo.png'
 
-export default function Login({setrendered,rendered}) {
-const [username, setusername] = useState("")
+export default function Signup({rendered,setrendered}) {
+    const [username, setusername] = useState("")
 const [password, setpassword] = useState("")
 const [showing, setshowing] = useState(false)
 const [message, setmessage] = useState(false)
@@ -53,37 +53,38 @@ setshowing(false)
             seterror("password must be at least 8 char long");
         return false;
         }else{
-            setrendered("Home")
+            setrendered("Verify")
         }
     }
 
-  return (
-    <>
-    
-    <div className="authpage">
+
+  return  (
+ <>
+ 
+ <div className="authpage">
     <div className="splashscreen">
      </div>
      {showing?<div className="errorbox"><div className="errors">{message}</div></div>:false}
 <div className="myform">
-    <div className="signup" onClick={()=>{setrendered("Signup")}}>
-        <div className="signuptext">sign up</div>
+    <div className="signup" onClick={setrendered("Signup")}>
+        <div className="signuptext">sign In</div>
         </div>
     <div className="image">
         <img className='imgs glow huge fill' src={headlogo} alt="" srcset="" />
         <img className='imgs mask huge fill' src={headlogo} alt="" srcset="" />
         </div>
         <div className="inputs">
-<input className='input' type="text" onChange={(e)=>setusername(e.currentTarget.value.trim())} placeholder='username...' name="" id="" />
+<input className='input' type="text" onChange={(e)=>setusername(e.currentTarget.value)} placeholder='username...' name="" id="" />
 <div className="font"><img src={Person} className='smallimage'/></div>
 </div>
 <div className="inputs">
-<input className='input' type="password" onChange={(e)=>setpassword(e.currentTarget.value)} placeholder='password...' name="" id="" />
+<input className='input' type="text" onChange={(e)=>setpassword(e.currentTarget.value)} placeholder='password...' name="" id="" />
 <div className="font"><img src={Seen} className='smallimage'/></div>
 
 
 </div>
 <div className="signinbox">
-    <div className="signin" onClick={ValidateLogin}>sign in</div>
+    <div className="signin" onClick={ValidateLogin}>sign Up</div>
     <div className="forget"> forgot password</div>
 </div>
 <fieldset>
@@ -95,7 +96,7 @@ setshowing(false)
 <div className="socials">
     <div className="social">
         <div className="logo"><img src={google} className='smallimage'/></div>
-        <div className="sentence"> sign up with</div>
+        <div className="sentence"> sign in with</div>
         <div className="logo"><img src={gool} className='gimg'/></div>
     </div>
 <div className="powered">
@@ -105,6 +106,6 @@ setshowing(false)
 
 </div>
     </div>
-    </>
-  )
+ </>
+)
 }
