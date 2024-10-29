@@ -69,7 +69,7 @@ body {
   position:absolute;
   top:0;
   width: 100%;
-  aspect-ratio: 1/.87;
+  aspect-ratio: 1/.84;
   user-select:none;
   pointer-events:none;
   background: #181A20;
