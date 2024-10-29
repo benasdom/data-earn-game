@@ -35,23 +35,23 @@ const countdown=()=>{
         </div>
         <div className="fournumb">
             <div className="digits">
-                <input max={9} className="otpnumb" placeholder='0' type="number" name="" id="" />
+                <input maxLength={1} max={9} className="otpnumb" placeholder='0' type="number" name="" id="" />
             </div>
             
             <div className="digits">
-                <input max={9} className="otpnumb" placeholder='0' type="number" name="" id="" />
+                <input maxLength={1} max={9} className="otpnumb" placeholder='0' type="number" name="" id="" />
             </div>
             
             <div className="digits">
-                <input max={9} className="otpnumb" placeholder='0' type="number" name="" id="" />
+                <input maxLength={1} max={9} className="otpnumb" placeholder='0' type="number" name="" id="" />
             </div>
             
             <div className="digits">
-                <input max={9} className="otpnumb" placeholder='0' type="number" name="" id="" />
+                <input maxLength={1} max={9} className="otpnumb" placeholder='0' type="number" name="" id="" />
             </div>
         </div>
         <div className="verbutton">
-            <div className="clickver" onClick={verifyOTP}> Verify</div>
+            <div className="clickver" onClick={verifyOTP} > Verify</div>
             <div className="resend" onClick={countdown}>
                 <img src={resend} className="backicon" alt="" srcset="" /> 
                 <div className="resendtext">{counter}s..Resend</div>

@@ -14,6 +14,9 @@ const [message, setmessage] = useState(false)
 let err=document.querySelector(".errors");
 
 const seterror=(pop)=>{
+    scrollTo({
+        top:0
+    })
     setmessage(pop)
     setshowing(true)
     alert(username)
@@ -62,14 +65,12 @@ setshowing(false)
  <>
  
  <div className="authpage">
-    <div className="splashscreen">
-     </div>
      {showing?<div className="errorbox"><div className="errors">{message}</div></div>:false}
 <div className="myform">
     <div className="signup" onClick={setrendered("Signup")}>
         <div className="signuptext">sign In</div>
         </div>
-    <div className="image">
+    <div className="signupimg">
         <img className='imgs glow huge fill' src={headlogo} alt="" srcset="" />
         <img className='imgs mask huge fill' src={headlogo} alt="" srcset="" />
         </div>
