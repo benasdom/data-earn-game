@@ -21,6 +21,7 @@
 .splashscreen{
   height:100vh;
   width:100%;
+  top:0;
   padding:0px;
   background:black;
   z-index: -1;
@@ -69,7 +70,10 @@ body {
   position:absolute;
   top:0;
   width: 100%;
-  aspect-ratio: 1/.84;
+  -webkit-aspect-ratio: 1/.82;
+  -moz-aspect-ratio: 1/.82;
+  -o-aspect-ratio: 1/.82;
+  aspect-ratio: 1/.82;
   user-select:none;
   pointer-events:none;
   background: #181A20;
