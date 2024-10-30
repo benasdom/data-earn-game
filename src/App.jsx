@@ -3,6 +3,7 @@ import './App.css'
 import Login from './screens/login'
 import Platform from './screens/platform'
 import Verfiy from './screens/verfiy'
+import Profile from './screens/profile'
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
  <>
  {/* <Login/> */}
  <Platform/>
+ {/* <Profile/> */}
  
  {/* <Verfiy/> */}
  </>

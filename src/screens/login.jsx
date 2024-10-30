@@ -16,7 +16,6 @@ let err=document.querySelector(".errors");
 const seterror=(pop)=>{
     setmessage(pop)
     setshowing(true)
-    alert(username)
     return ()=>{err.textContent=message}
     
 

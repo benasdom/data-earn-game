@@ -14,7 +14,7 @@
 }
 
 *::-webkit-scrollbar{
-  width:0px;
+  width:1px;
   fill:transparent;
   background:transparent;
 }
@@ -71,13 +71,13 @@ body {
   position:absolute;
   top:0;
   width: 100%;
-  -webkit-aspect-ratio: 1/.83;
-  -moz-aspect-ratio: 1/.83;
-  -o-aspect-ratio: 1/.83;
-  aspect-ratio: 1/.83;
+  -webkit-aspect-ratio: 1/.85;
+  -moz-aspect-ratio: 1/.85;
+  -o-aspect-ratio: 1/.85;
+  aspect-ratio: 1/.85;
   user-select:none;
   pointer-events:none;
-  background: #181A20;
+  background: #17191f;
   border-radius: 0px 0px 30px 30px;
   border-bottom: 2px solid #EDBC4A;
   z-index:-1;
@@ -234,17 +234,25 @@ button:focus-visible {
     border-radius:10px;
     color:white;
     width:45%;
+    background:rgba(255, 255, 255, 0.06);
     font-size:12px;
     margin:3px;
   }
 .resendtext{
   color:grey;
-  height:50px;
+  height:100%;
   text-align:left;
   display:flex;
+  margin-left:3px;
   align-items:center;
 }
 .back{
+  height:100px;
+  display:flex;
+  width:100%;
+  align-items:center;
+}
+.back2{
   height:100px;
   display:flex;
   width:100%;
@@ -266,10 +274,15 @@ margin-top:60px;
   width:25px;
   height:25px;
   margin:15px;
-  margin-top:20px;
   margin-right:0px;
   object-fit:cover;
   object-position:center;
+}
+.phonechange{
+  color:gold;
+  font-size: 11px;
+  text-align: left;
+  padding-top:5px;
 }
 .verify{
   display:flex;
@@ -436,6 +449,91 @@ height:100px;
   align-items:flex-end;
   width:100%;
   top:0;
+}
+.blured{
+  top:0;
+  width:100%;
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.profilepage{
+  display:flex;
+  align-items: flex-start;
+  flex-direction: column;
+  height:100vh;
+}
+.topbar2{
+  height:60px;
+  display:flex;
+  flex-direction: row;
+  justify-content:space-around;
+  align-items:flex-end;
+  width:100%;
+  margin-top:30px;
+
+}
+.editimg{
+  position:relative;
+  width:100%;
+  display:flex;
+  justify-content: center;
+  height:120px;
+  align-items: center;
+}
+.userimg{
+  width:100px;
+  border-radius: 10px;
+}
+.camimg{
+  position:absolute;
+  background:white;
+  border-radius: 50%;
+  width:30px;
+  bottom:0;
+  margin-left:-20px;
+}
+.beforedetails{
+  width:100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fdetail{
+  height:70px;
+  display:flex;
+  align-items: center;
+  width:90%;
+  background:rgba(255, 255, 255, 0.1);
+  color:white;
+  padding-left: 20px;
+  font-weight: 600;
+  font-size: 20px;
+  border-radius: 10px;
+}
+.sdetail{
+  display:flex;
+  align-items: center;
+  width:80%;
+  font-size: 12px;
+  margin-bottom: 2px;
+  color:white;
+  padding-left: 20px;
+  font-weight: 600;
+  border-radius: 10px;
+}
+.pdetails{
+  background:
+  url(/src/assets/wave.png),
+  linear-gradient(180deg, #643CBB 20.13%, #DB00FF 100%);
+  background-position: right,center;
+  background-repeat: no-repeat,repeat;
+  background-size: 300px,cover;
+  width:95%;
+  border-radius: 10px;
+  padding-bottom: 50px;
+  margin-top: 10px;
+
 }
 .nextbar{
   height:70px;
@@ -768,6 +866,80 @@ height:100px;
   opacity: 0px;
   object-fit: cover;
   object-position: center;
+ }
+ .notblured{
+display:flex;
+justify-content: center;
+align-items: center;
+width:100%;
+ }
+ .bottomprofile{
+  display:flex;
+  border-radius: 10px 10px 0px 0px;
+  align-items: center;
+  background: #181A20;
+  margin-top: 10px;
+  width:100%;
+  flex-direction: column;
+  padding-bottom: 50px;
+
+ }
+ .profileitems{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  width:90%;
+  height:60px;
+ }
+ .profleft{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+ }
+ .profright{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  height:100%;
+  width:80%;
+ }
+ .ptextright{
+  color:white;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:100%;
+ }
+ .backicon2{
+  width:15px;
+  height:15px;
+  margin-right: 10px;
+  transform:rotate(180deg);
+  object-fit:cover;
+  object-position:center;
+ }
+ .cuteimg{
+  width:50px;
+  height:50px;
+  border-radius: 10px;
+  object-fit: cover;
+  object-position: center;
+ }
+ .myprofile{
+  height:60px;
+  width:100%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  width:calc(100%-40px);
+  font-weight: 600;
+  color:white;
+  padding-left: 20px;
  }
  .refthird{
  max-height:300px;
@@ -1262,6 +1434,14 @@ align-items:center;
   height:30px;
   flex-direction: row;
 }
+.title2{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom:5px;
+  width:80%;
+  height:100%;
+}
 .profile{
   left:4px;
 }
@@ -1269,6 +1449,12 @@ align-items:center;
   right:4px;
   position: relative;
 }
+.notice2{
+right:4px;
+position: relative;
+height:100%;
+}
+
 .progress{
   position: relative;
   height: 150px;
@@ -1347,17 +1533,38 @@ border-radius: 50%;
 .notice::after{
 content:"";
 position:absolute;
-padding:5px;
+padding:4px;
 margin-left:-7px;
 border-radius: 50%;
 background:red;
+margin-top: 2px;
+border:1px solid black;
 z-index:2;
 
 
 }
+.notice2::after{
+  content:"";
+  position:absolute;
+  padding:4px;
+  margin-left:-7px;
+  border-radius: 50%;
+  background:red;
+  margin-top: 2px;
+  border:1px solid black;
+  z-index:2;
+  
+  
+  }
 .ttext{
   font-size:20px;
   font-weight:700;
+}
+.ttext2{
+  font-size:20px;
+  font-weight:700;
+  height:100%;
+  width:300px;
 }
 .toproamer{
   position:absolute;
@@ -1673,13 +1880,14 @@ margin-bottom: -7%;
 display: flex;
 align-items: center;
 justify-content: center;
-color:gold;
-height:40px;
-width:90px;
+color:white;
+height:50px;
+width:100px;
 text-align: center;
 background:rgba(250, 250, 252, 0.05);
 border-radius: 20px;
 margin:10px;
+font-size: 12px;
 animation:hide 6s linear forwards;
 }
 @keyframes hide {
@@ -1707,6 +1915,7 @@ animation:hide 6s linear forwards;
   outline:none;
   border:0px;
   width:250px;
+  height:100%;
   background:none;
 }
 .inputs{
@@ -1721,6 +1930,21 @@ animation:hide 6s linear forwards;
   border:1px solid rgb(242, 207, 4);
   margin-bottom:15px;
   color:white;
+}
+.signupbtn{
+  height:50px;
+  padding:5px;
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  align-self: center;
+  width:300px;
+  border-radius: 10px;
+  margin-bottom:15px;
+  background:#D7951B;
+  color:white;
+
 }
 .font{
   display: flex;

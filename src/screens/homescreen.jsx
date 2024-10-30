@@ -62,7 +62,7 @@ roamer.style.cssText=`left:${roam}%`
   return (
 <>
 <div className="pagecontent">
-<Topbar/>
+<Topbar  setrendered={setrendered}/>
 <div className="homepagecontrol">
 
 <div className="welcome">
