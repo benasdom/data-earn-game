@@ -8,7 +8,7 @@ import Gamebottom from './gamebottom'
 import Vidbottom from './vidbottom'
 import Topbar from './topbar'
 
-function Earn() {
+function Earn({setrendered}) {
     const [megabites, setmegabites] = useState("900")
 const [gamefloor, setgamefloor] = useState(false)
 
@@ -43,7 +43,8 @@ useEffect(() => {
   
   return (
 <div className="pagecontent">
-<Topbar/>
+
+<Topbar  setrendered={setrendered}/>
 <div className="nextbar">
   <div className="coincentered">
   <div className="topcoin"><img className='topimgs' src={coin} alt="" srcset="" /></div>
@@ -56,7 +57,9 @@ useEffect(() => {
   </div>
 
 </div>
+
 <div className="roundedcontent">
+
 {gamefloor?<Gamecomponent trig={trig} gamefloor={gamefloor} megabites={megabites} />:  <Videocomponent untrig={untrig} gamefloor={gamefloor} megabites={megabites} mine={mine}/>
 }
   <div className="ffrow">

@@ -28,9 +28,9 @@ const componentrendered=(option)=>{
 
         {
           rendered==ar[0]?<Homescreen setrendered={setrendered} rendered={rendered}/>
-        :(rendered==ar[1]?<Earn/>
-        :(rendered==ar[2]?<Referals/>
-        :(rendered==ar[3]?<Stats/>
+        :(rendered==ar[1]?<Earn setrendered={setrendered}/>
+        :(rendered==ar[2]?<Referals setrendered={setrendered}/>
+        :(rendered==ar[3]?<Stats setrendered={setrendered}/>
         :(rendered==ar[4]?<Signup setrendered={setrendered} rendered={rendered}/>
         :(rendered==ar[5]?<Login setrendered={setrendered} rendered={rendered}/>
         :(rendered==ar[6]?<Verfiy setrendered={setrendered} rendered={rendered}/>

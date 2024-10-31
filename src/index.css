@@ -57,12 +57,12 @@ a:hover {
 }
 
 body {
-  margin: 0;
+  margin: 0px;
   display: flex;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  padding:0;
+  padding:0px;
   background:black;
 
 }
@@ -255,7 +255,7 @@ button:focus-visible {
 .back2{
   height:100px;
   display:flex;
-  width:100%;
+  width:10%;
   align-items:center;
 }
 .picotp{
@@ -275,6 +275,12 @@ margin-top:60px;
   height:25px;
   margin:15px;
   margin-right:0px;
+  object-fit:cover;
+  object-position:center;
+}
+.backicon3{
+  width:25px;
+  height:25px;
   object-fit:cover;
   object-position:center;
 }
@@ -448,20 +454,52 @@ height:100px;
   justify-content:space-around;
   align-items:flex-end;
   width:100%;
+  backdrop-filter:blur(3rem);
+
   top:0;
 }
 .blured{
+  position:relative;
   top:0;
   width:100%;
   display:flex;
   justify-content: center;
   flex-direction: column;
+  backdrop-filter:blur(3rem);
+}
+.bluredafter{
+  position:absolute;
+  width:350px;
+  height:300px;
+  background:rgb(0, 26, 131);
+  border-radius:50%;
+  z-index:-9;
+  top:0;
+  margin-top:-150px;
+  margin-left:-150px;
+
+}
+.bluredbefore{
+  position:absolute;
+  width:150px;
+  height:170px;
+  background:rgba(255, 0, 187, 0.93);
+  border-radius:50%;
+  z-index:-10;
+  margin:40px;
+  top:0;
+
 }
 .profilepage{
+  position:absolute;
   display:flex;
   align-items: flex-start;
   flex-direction: column;
   height:100vh;
+  width:100%;
+  justify-content:space-between;
+  top:0;
+  left:0;
 }
 .topbar2{
   height:60px;
@@ -503,34 +541,36 @@ height:100px;
   height:70px;
   display:flex;
   align-items: center;
-  width:90%;
-  background:rgba(255, 255, 255, 0.1);
-  color:white;
-  padding-left: 20px;
-  font-weight: 600;
+  background:linear-gradient(45deg,rgba(255, 255, 255, 0.1),transparent,transparent);
+  color:black;
+  padding-left: 15px;
+  font-weight: 800;
   font-size: 20px;
   border-radius: 10px;
+  margin-bottom: 15px;
+
 }
 .sdetail{
   display:flex;
   align-items: center;
-  width:80%;
-  font-size: 12px;
+  width:70%;
+  font-size: 13px;
   margin-bottom: 2px;
-  color:white;
+  color:black;
+  letter-spacing:1px;
+  text-align:left;
   padding-left: 20px;
-  font-weight: 600;
   border-radius: 10px;
 }
 .pdetails{
   background:
   url(/src/assets/wave.png),
-  linear-gradient(180deg, #643CBB 20.13%, #DB00FF 100%);
-  background-position: right,center;
+  linear-gradient(270deg,#cfac00 20.13%, #DB00FF 100%);
+  background-position:210% 0%,center;
   background-repeat: no-repeat,repeat;
-  background-size: 300px,cover;
+  background-size: 350px 250px,cover;
   width:95%;
-  border-radius: 10px;
+  border-radius: 20px;
   padding-bottom: 50px;
   margin-top: 10px;
 
@@ -541,6 +581,8 @@ height:100px;
   display:flex;
   flex-direction:row;
   justify-content: center;
+  backdrop-filter:blur(3rem);
+
   align-items: center;
 }
 .frow,.srow,.trow,.ffrow,.fvrow{
@@ -760,18 +802,38 @@ height:100px;
   color:whitesmoke;
 
 }
-.startearn{
-  height:35px;
+.earn2lost{
+  background:#17191f !important;
+}
+.startearn2{
+  height:55px;
+  width:220px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 11px;
+  background:linear-gradient(45deg,rgb(224, 209, 0) 20.13%, #DB00FF 100%);
+  color:white;
+  margin-top:20px;
+  font-size: 20px;
+  font-weight:800;
+  box-shadow:0px 0px 50px black;
+
+}
+  .startearn{
+    height:35px;
   width:120px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 11px;
-  background:#e6b400;
+  background:linear-gradient(45deg,rgb(224, 209, 0) 20.13%, #DB00FF 100%);
   color:white;
   margin-top:5px;
+  text-transform: uppercase;
   font-size: 11px;;
   margin-bottom:10px;
+  font-weight:700;
 }
 .td{
   color:#FFC700;
@@ -880,6 +942,7 @@ width:100%;
   background: #181A20;
   margin-top: 10px;
   width:100%;
+  height:50vh;
   flex-direction: column;
   padding-bottom: 50px;
 
@@ -929,6 +992,14 @@ width:100%;
   object-fit: cover;
   object-position: center;
  }
+ .cuteimg2{
+  width:30px;
+  height:30px;
+  border-radius: 10px;
+  filter:invert(1);
+  object-fit: cover;
+  object-position: center;
+ }
  .myprofile{
   height:60px;
   width:100%;
@@ -936,10 +1007,8 @@ width:100%;
   justify-content: center;
   align-items: center;
   font-size: 25px;
-  width:calc(100%-40px);
   font-weight: 600;
   color:white;
-  padding-left: 20px;
  }
  .refthird{
  max-height:300px;
@@ -1002,17 +1071,44 @@ width:100%;
   font-size: 10px;
   padding:5px;
 }
+.userhomepic{
+  position:fixed;
+  z-index:-10;
+  width:100%;
+  top:0;
+  pointer-events:none;
+
+}
+.headshot{
+  width:100%;
+  height:100vh;
+  object-fit:cover;
+  object-position:center;
+  transition: all 1s ease-in-out;
+  opacity:0;
+}
+.headshotlost{
+  opacity:1 !important;
+  transition: all 1s ease-in-out !important;
+
+
+
+}
+
   
 .strkimg{
-  height:23px;
-  width:23px;
+  height:24px;
+  width:24px;
+  filter:
+  drop-shadow(0px 0px .5px cyan)
+  drop-shadow(0px 0px 10px cyan)
+  drop-shadow(0px 0px 1px cyan);
   object-fit: cover;
   object-position: center;
 }
 .streak{
   position:absolute;
   margin-left: 20px;
-  color:white;
   font-size: 13px;
 }
 
@@ -1110,6 +1206,11 @@ border-radius:15px;
   width:110px;
   height:110px;
   object-fit: contain;
+  filter: 
+   drop-shadow(0px 0px 2px #CE8BE8)
+   drop-shadow(0px 0px 2px #CE8BE8)
+   drop-shadow(0px 0px 25px #CE8BE8);
+
 }
 
 .play{
@@ -1276,7 +1377,9 @@ object-position:center;
   justify-content:center;
   font-size:12px;
   text-align:center;
-  background: linear-gradient(94.25deg, #9747FF 30.21%, #CE8BE8 89.36%);
+  background:
+  url(/src/assets/wave.png),
+  linear-gradient(45deg,gold, #DB00FF 100%);
   font-weight:800;
 }
 
@@ -1439,7 +1542,7 @@ align-items:center;
   justify-content: center;
   align-items: center;
   margin-bottom:5px;
-  width:80%;
+  width:70%;
   height:100%;
 }
 .profile{
@@ -1453,6 +1556,8 @@ align-items:center;
 right:4px;
 position: relative;
 height:100%;
+width:10%;
+
 }
 
 .progress{
@@ -1524,10 +1629,6 @@ width:7px;
 height:7px;
 background:#1a1a1a;
 border:3px solid #EDBC4A;
-box-shadow: 
-0px 0px 3px #EDBC4A,
-0px 0px 3px #EDBC4A,
-0 0 10px 1px rgba(118, 87, 0, 0.678);
 border-radius: 50%;
 }
 .notice::after{
@@ -1554,7 +1655,6 @@ z-index:2;
   border:1px solid black;
   z-index:2;
   
-  
   }
 .ttext{
   font-size:20px;
@@ -1575,7 +1675,7 @@ z-index:2;
   border-radius:10px;
   transition:all .3s ease-in;
   height:80%;
-  background: linear-gradient(94.25deg, #9747FF 30.21%, #CE8BE8 89.36%);
+  background:linear-gradient(45deg,rgb(224, 209, 0) 20.13%, #DB00FF 100%);
   transition:all .3s ease-in-out;
 
 }
@@ -1662,7 +1762,7 @@ transform:translate(0%);
   transition:all .3s ease-in-out;
 }
 .gameactivated{
-  background: linear-gradient(90deg, #A3208D 0%, #E7509B 98.5%) !important;
+  background:linear-gradient(45deg,#DB00FF  20.13%,rgb(224, 209, 0) 100%);
   transition:all .3s ease-in-out !important;
 
 
@@ -1675,7 +1775,13 @@ transform:translate(0%);
   max-width:85%;
   height:55px;
   min-width:55px;
-  background: linear-gradient(94.25deg, #9747FF 30.21%, #CE8BE8 89.36%);
+  background:
+  url(/src/assets/wave.png),
+  linear-gradient(45deg,gold, #DB00FF 100%);
+  background-size:100% 100px,900px 200px;
+  background-attachment: scroll,fixed;
+  background-position: left bottom,center,center;
+  background-repeat: no-repeat,repeat;
   
 }
 .topcointxt{
@@ -1716,6 +1822,8 @@ transform:translate(0%);
   border-top: 3px solid #EDBC4A;
   box-shadow: 1px -20px 25px 1px #F7C44F52;
   border-radius: 50px 50px 0px 0px;
+  backdrop-filter:blur(2rem);
+  background:linear-gradient(black,transparent,black);
   width:100%;
 
 }
@@ -1752,8 +1860,9 @@ transform:translate(0%);
 .roamed{
   transition:all .3s ease-in-out;
   /* background: linear-gradient(94.25deg, #9747FF 30.21%, #CE8BE8 89.36%); */
-  border:1.5px solid white;
-  backdrop-filter: blur(.4rem);
+  border:1.5px solid gold;
+  box-shadow:0px 0px 50px black;
+  backdrop-filter: blur(4rem);
 
 }
 
@@ -1818,6 +1927,7 @@ margin-bottom: -7%;
   transform:scale(1) translateY(-1.6vh) !important;
   height:15px !important;
   font-size:13px !important;
+  color:gold !important;
   transition:all .3s ease-in-out !important;
 }
 
@@ -1825,7 +1935,6 @@ margin-bottom: -7%;
   text-align:center;
   transition:all .3s ease-in-out;
   transform:scale(0);
-  color:white;
 }
 .navitems{
   width:20%;

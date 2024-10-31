@@ -2,6 +2,7 @@ import React, { memo, useEffect, useLayoutEffect, useState } from 'react'
 import Topbar from './topbar'
 import coinstacked from '../assets/coinstacked.png'
 import shovel from '../assets/shovel.png'
+import dp from '../assets/brown.jpg'
 
 
 function Homescreen({setrendered,rendered}) {
@@ -45,6 +46,11 @@ useEffect(() => {
 
 }, [gbused,rendered])
 
+const toggletheme=()=>{
+    document.querySelector(".headshot").classList.toggle("headshotlost")
+    document.querySelector(".startearn2").classList.toggle("earn2lost")
+}
+
 const earnpage=()=>{
 setrendered("Earn")
 let listed=[...document.querySelectorAll(".navitems")];
@@ -79,7 +85,9 @@ roamer.style.cssText=`left:${roam}%`
         <img src={shovel} className='shovel' alt="" srcset="" />
     </div>
 </div>
-
+<div className="userhomepic">
+    <img src={dp} className="headshot"/>
+</div>
 <div className="earnedtoday">
     <div className="earnleft">
         <div className="earntitle">Earned</div>
@@ -119,7 +127,9 @@ roamer.style.cssText=`left:${roam}%`
         </div>
     </div>
 </div>
-
+<div className="customization">
+    <div className="startearn2" onClick={toggletheme}>Toggle Theme</div>
+</div>
 
 
 

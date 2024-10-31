@@ -6,6 +6,7 @@ import cam from '../assets/cam.png'
 import extra from '../assets/extra.png'
 import personbg from '../assets/personbg.png'
 import callbg from '../assets/callbg.png'
+import detail from '../assets/detail.png'
 
 
 
@@ -20,9 +21,13 @@ const [profilverified, setprofilverified] = useState("Verified")
   return (
     <>
     <div className="profilepage">
+        
+            <div className="bluredafter"></div>
+            <div className="bluredbefore"></div>
         <div className="blured">
+
         <div className="topbar2">
-  <div className="back2" onClick={()=>{setrendered("Home")}}><img className="backicon" src={back} alt="" srcset="" /></div>
+  <div className="back2" onClick={()=>{setrendered("Home")}}><img className="backicon3" src={back} alt="" srcset="" /></div>
   <div className="title2"><div className="ttext2">~ {profilename} ~</div></div>
   <div className="notice2"><img className="topimg" src={notify} alt="" /></div>
 </div>
@@ -35,7 +40,8 @@ const [profilverified, setprofilverified] = useState("Verified")
   </div>
 <div className="beforedetails">
 <div className="pdetails">
-    <div className="fdetail">Email: {profilemail}</div>
+    <div className="fdetail"><img src={detail} className="cuteimg2"/>Details</div>
+    <div className="sdetail">Email: {profilemail}</div>
     <div className="sdetail">Phone: {profilephone}</div>
     <div className="sdetail">Date: {profiledate}</div>
     <div className="sdetail">Account Verified: {profilverified}</div>
