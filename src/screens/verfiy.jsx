@@ -20,7 +20,15 @@ const countdown=()=>{
     useEffect(() => {
       
     }, [rendered])
-    
+
+    const inp = document.querySelectorAll(".otpnumb");
+    [...inp].map((a,b)=>a.onkeydown=(ev)=>{
+        (!a.value && ev.key === "Backspace" && b)?[...inp][b-1].focus()
+        :((a.value && [..."0123456789"].includes((ev.key+""))&& b<5)?[...inp][b+1].focus():false);
+    })
+
+          
+     
   return (
     <>
     <div className="flexed">
@@ -33,27 +41,33 @@ const countdown=()=>{
             </div>
         </div>
         <div className="verdetails">
-            Please enter the <span className="onetime">  One Time Password</span> we sent to your phone number
+            Please enter the <span className="onetime">  One Time Password</span> we sent to your phone tel
             <div className="phonechange" onClick={()=>{setchangenum(true)}}>
-            Change mobile number
+            Change mobile tel
         </div>
         </div>
       
         <div className="fournumb">
             <div className="digits">
-                <input maxLength={1}  className="otpnumb"  type="number" name="" id="" />
+                <input  maxLength={1}  className="otpnumb"  type="tel" name="" id="" />
             </div>
             
             <div className="digits">
-                <input maxLength={1}  className="otpnumb"  type="number" name="" id="" />
+                <input  maxLength={1}  className="otpnumb"  type="tel" name="" id="" />
             </div>
             
             <div className="digits">
-                <input maxLength={1}  className="otpnumb"  type="number" name="" id="" />
+                <input  maxLength={1}  className="otpnumb"  type="tel" name="" id="" />
             </div>
-            
+            <div className="div">-</div>
             <div className="digits">
-                <input maxLength={1}  className="otpnumb"  type="number" name="" id="" />
+                <input  maxLength={1}  className="otpnumb"  type="tel" name="" id="" />
+            </div>
+            <div className="digits">
+                <input  maxLength={1}  className="otpnumb"  type="tel" name="" id="" />
+            </div>
+            <div className="digits">
+                <input  maxLength={1}  className="otpnumb"  type="tel" name="" id="" />
             </div>
         </div>
         <div className="verbutton">

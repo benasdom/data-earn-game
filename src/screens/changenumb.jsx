@@ -27,10 +27,13 @@ useEffect(() => {
                         <img src="" alt="" />
                         
                         <div className="leftcontent">233</div></div>
-                    <div className="right"><input type="text" placeholder="Enter phone" className='vernuminput'/></div>
+                    <div className="right"><input type="tel" placeholder="Enter phone" className='vernuminput'/></div>
                 </div>
             <div className="sendbtn" onClick={confirmnumb}>
-                <span>send</span>
+                <span>Add Number</span>
+            </div>
+            <div className="sendbtn cancel" onClick={confirmnumb}>
+                <span>Cancel</span>
             </div>
             </div>
         </div>
