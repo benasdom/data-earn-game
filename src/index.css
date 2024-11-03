@@ -599,9 +599,22 @@ height:100px;
   display:flex;
   justify-content: center;
   width:90%;
-  margin-top:20px;
+  margin-top:5px;
   border-radius: 10px;;
   align-items: center;
+}
+.trow2{
+  position:absolute;
+  bottom:0;
+  display:flex;
+  justify-content: center;
+  width:90%;
+  margin-top:5px;
+  align-items: center;
+  width:100%;
+  background:rgba(0, 0, 0, 0.381);
+  backdrop-filter: blur(4rem);
+  z-index:200;
 }
   .vidgame{
   width:48.5%;
@@ -644,7 +657,7 @@ height:100px;
   border-radius:10px;
   margin-top:15px;
   display:flex;
-  background: #313131;
+  background:#1a1a1a;
   justify-content: center;
   align-items: center;
   flex-direction: row;
@@ -654,7 +667,7 @@ height:100px;
   border-radius:10px;
   margin-top:10px;
   display:flex;
-  background: #313131;
+  background:#1a1a1a;
   justify-content: center;
   align-items: center;
   flex-direction: row;
@@ -879,12 +892,18 @@ height:100px;
   align-items: center;
  }
  .reffirstboxtop{
-  border-radius:30px;
+  border-radius:0px 0px 20px 20px;
   margin-top: 10px;
-  background: linear-gradient(107.68deg, #2C41FD 2.26%, #11C5FF 93.75%);
+  background:
+  linear-gradient(45deg,#ffd900, #DB00FF 100%) no-repeat,
+  linear-gradient(90deg,rgba(0, 23, 39, 0.867), #00000095 100%) no-repeat,
+  linear-gradient(90deg,rgba(0, 23, 39, 0.967), #dd00ff00 100%) no-repeat,
+  linear-gradient(107.68deg, #2C41FD 2.26%, #11C5FF 93.75%);
   display:flex;
+  background-size:50px 75px,53px 90px,cover,cover;
   justify-content: center;
-  align-items: center;
+  clip-path: polygon(15% 0, 100% 0, 100% 60%, 100% 100%, 0 100%, 0 14%, 0 35%);
+
   flex-direction: column;
   padding:20px;
  }
@@ -910,7 +929,8 @@ height:100px;
  font-size: 24px;
  font-weight: 700;
  line-height:50.05px;
- text-align: left;
+ text-align: center;
+ justify-content: flex-end;
 
 
  }
@@ -1074,8 +1094,9 @@ width:100%;
   display:flex;
   justify-content:center;
   text-align:center;
-  color:white;
-  font-weight: 100;
+  color:transparent;
+  font-weight: 600;
+  color:#EDBC4A;
   padding-top:5px;
   border-radius:10px;
   background:#444444a7;
@@ -1295,7 +1316,7 @@ border-radius:15px;
 .ffrow{
 position:relative;
 margin-bottom:3px;
-background: #313131;
+background: #1a1a1a;
 border-radius:7px;
 
 
@@ -1305,16 +1326,16 @@ border-radius:7px;
   justify-content:space-between;
 }
 .combo{
-  height:80px;
-  width:100px;
+  height:70px;
+  width:105px;
   display:flex;
   justify-content: center;
   align-items: center;
-  background:rgb(44, 42, 42);
+  background:#1a1a1a;
   border-radius: 10px;
   box-shadow:
-   0px -2px 2px 0px #9747FF,
-   0px 2px 2px 0px #9747FF;
+   0px -2px 2px 0px #ffd900,
+   0px 2px 2px 0px #ffd900;
 
 }
 .midcoin{
@@ -1478,6 +1499,10 @@ border-radius: 12px;
   font-size: 65px;
   text-align: left;
   width: 90%;
+  color:transparent;
+  background:linear-gradient(45deg,rgb(224, 209, 0) 20.13%, #DB00FF 100%);
+  -webkit-background-clip: text;
+  font-weight: 700;
 
  }
  .statgames{
@@ -1513,7 +1538,7 @@ border-radius: 12px;
 }
 .frow{
   height:40px;
-  background: #313131;
+  background:#1a1a1a;
   display:flex;
   justify-content:space-between;
 
@@ -1693,11 +1718,12 @@ z-index:2;
 
 .gamecomp{
     display:flex;
+    position:relative;
     width:100%;
-    height:280px;
+    height:225px;
     overflow:clip;
     top:0;
-    background:rgb(33, 0, 30);
+    background:#1a1a1a;
     padding:0px;
     margin:0px;
     flex-direction:column;
@@ -1755,8 +1781,8 @@ transform:translate(0%);
 .slider{
   top:0;
   width:100%;
-  object-fit:cover;
-  object-position:top center;
+  object-fit:contain;
+  object-position:center;
 }
 .vidcomp{
   display:flex;
@@ -1881,6 +1907,7 @@ transform:translate(0%);
   box-shadow:0px 0px 50px black;
   filter:blur(.6rem);
 }
+
 
 .errorbox{
 	position: fixed;

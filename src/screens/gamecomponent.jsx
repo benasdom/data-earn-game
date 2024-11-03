@@ -20,7 +20,7 @@ export default function Gamecomponent({megabites}) {
             <img src={samurai} className="slider" />
             </div>
         </div>
-        <div className="trow">
+        <div className="trow2">
     <img src={coin} className='midcoin' alt="" srcset="" />
     <div className="money">{megabites}MB</div>
   </div>
