@@ -20,9 +20,9 @@ export default function Videocomponent({mine,megabites}) {
   <div className="price"><img srcset={coinstacked} className="earimg" /> <div className="wearn">Watch & Earn</div></div>
   </div>
   <div className="srow">
-{Array(3).fill("").map(a=>
+{Array(3).fill("").map((a,b)=>
 (
-  <div className="combo"><img className='combotile' src={mine}/></div>
+  <div className="combo" key={b+""}><img className='combotile' src={mine}/></div>
 
 ))}
   </div>

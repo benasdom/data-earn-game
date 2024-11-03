@@ -9,9 +9,9 @@ export default function Gamebottom() {
 
   return (
         <div className="comp">
-        {Array(20).fill("").map(a=>{
+        {Array(20).fill("").map((a,b)=>{
          return (
-          <div className="gameitems">
+          <div className="gameitems" key={b+""}>
           <div className="gameitemschild">
     <div className="gametop">
       <img src={mine} className='gamevidtop' alt="" srcset="" />

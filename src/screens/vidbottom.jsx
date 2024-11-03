@@ -10,9 +10,9 @@ export default function Vidbottom() {
 
   return (
     <div className="comp">
-    {Array(20).fill("").map(a=>{
+    {Array(20).fill("").map((a,b)=>{
      return (
-      <div className="viditems">
+      <div className="viditems" key={b+""}>
       <div className="viditemschild">
 <div className="vidtop">
   <img src={mine} className='vidtop' alt="" srcset="" />
