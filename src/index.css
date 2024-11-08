@@ -80,6 +80,7 @@ body {
   pointer-events:none;
   background: repeating-radial-gradient(#17191f,rgba(255,255,255,.15) 3em);
   background-size:1200px 1200px;
+  background-attachment:fixed;
   border-radius: 0px 0px 30px 30px;
   border-bottom: 2px solid #EDBC4A;
   z-index:-1;
