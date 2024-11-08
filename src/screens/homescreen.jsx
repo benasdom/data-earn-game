@@ -5,24 +5,33 @@ import shovel from '../assets/shovel.png'
 import dp from '../assets/brown.jpg'
 
 
-function Homescreen({setrendered,rendered}) {
-    const [username, setusername] = useState("Benjamin")
-    const [dated, setdated] = useState("Sat 9 October")
+function Homescreen({setrendered,rendered,currentuser}) {
+    const [username, setusername] = useState("")
+    const [dated, setdated] = useState("")
     const [earnedtoday, setearnedtoday] = useState("900")
-    const [totalwatched, settotalwatched] = useState("850")
+    const [totalwatched, settotalwatched] = useState("")
     const [gbcurvetotal, setgbcurvetotal] = useState(2)
+    const [toggled, settoggled] = useState(false)
     const [gbused, setgbused] = useState(0)
     const [gbremaining, setgbremaining] = useState(1.8)
     const [mounted, setmounted] = useState(false)
 
 useEffect(() => {
+
+let datestring=`${new Date()}`.split(" ")
+setdated((`${datestring[2]} ${datestring[1]} ${datestring[3]}`))
+let stored=localStorage.getItem("userInfo");
+stored!=null?setusername((JSON.parse(stored).firstName)):false
+
     return ()=>{
+
         let usedup=((gbremaining/gbcurvetotal)*100);
     setgbused(usedup)
     let cclast=[...document.querySelectorAll(".cc")][1];
     let dotlast=document.querySelector(".dot");
     cclast?.classList.add("cclast")
     dotlast?.classList.add("dotlast")
+
     }
 
 }, [mounted])
@@ -44,7 +53,7 @@ useEffect(() => {
             
     }else{false}
 
-}, [gbused,rendered])
+}, [gbused,rendered,username])
 
 const toggletheme=()=>{
     document.querySelector(".headshot").classList.toggle("headshotlost")
@@ -68,13 +77,13 @@ roamer.style.cssText=`left:${roam}%`
   return (
 <>
 <div className="pagecontent">
-<Topbar  setrendered={setrendered}/>
+<Topbar setrendered={setrendered}/>
 <div className="homepagecontrol">
 
 <div className="welcome">
     <div className="hello">
         <div className="hellotext">
-        Hi, {username}!
+        Hi, {username.length>11?`${username.slice(0,10)}...!`:username}
 
         </div>
         <div className="hellodate">

@@ -33,8 +33,8 @@ const countdown=()=>{
     <>
     <div className="flexed">
       {changenum?<Changenumb changenum={changenum} setchangenum={setchangenum}/>:false}
-        <div className="back" onClick={()=>{setrendered("Signup")}}><img className="backicon" src={back} alt="" srcset="" /></div>
-        <div className="picotp" ><img src={otpimg} alt="" srcset="" /></div>
+        <div className="back" onClick={()=>{setrendered("Signup")}}><img className="backicon" src={back} alt=""  /></div>
+        <div className="picotp" ><img src={otpimg} alt=""  /></div>
         <div className="verfiy">
             <div className="veri">
                 Verification
@@ -47,7 +47,7 @@ const countdown=()=>{
         </div>
         </div>
       
-        <div className="fournumb">
+        <div  className="fournumb">
             <div className="digits">
                 <input  maxLength={1}  className="otpnumb"  type="tel" name="" id="" />
             </div>
@@ -73,7 +73,7 @@ const countdown=()=>{
         <div className="verbutton">
             <div className="clickver" onClick={verifyOTP} > Verify</div>
             <div className="resend" onClick={countdown}>
-                <img src={resend} className="backicon" alt="" srcset="" /> 
+                <img src={resend} className="backicon" alt=""  /> 
                 <div className="resendtext">{(counter<0?0:counter)==10?"Resend":counter+"s ..waiting"} </div>
             </div>
         </div>

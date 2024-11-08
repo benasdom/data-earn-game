@@ -4,23 +4,32 @@ import Seen from '../assets/seen.png'
 import google from '../assets/google.png'
 import gool from '../assets/gool.png'
 import headlogo from '../assets/headlogo.png'
+import phonepic from '../assets/phone.png'
+
 
 export default function Signup({rendered,setrendered}) {
-    const [email, setemail] = useState("")
-    const [username, setusername] = useState("")
+const [email, setemail] = useState("")
+const [lastName, setlastName] = useState("")
+const [firstName, setfirstName] = useState("")
+const [indics, setindics] = useState(false)
+const [logged, setlogged] = useState({
+    id:'', dateCreated:'',firstName:'', lastName:'',msisdn:''
+})
 const [password, setpassword] = useState("")
 const [confirmpassword, setconfirmpassword] = useState("")
-const [phone, setphone] = useState("")
+const [msisdn, setmsisdn] = useState("")
 const [showing, setshowing] = useState(false)
+const [toggled, settoggled] = useState(false)
 const [message, setmessage] = useState(false)
 
 let err=document.querySelector(".errors");
 
-const seterror=(pop)=>{
+const seterrors=(pop)=>{
     scrollTo({
         top:0
     })
     setmessage(pop)
+    setindics(false);
     setshowing(true)
     return ()=>{err.textContent=message}
     
@@ -28,62 +37,113 @@ const seterror=(pop)=>{
 }
 useEffect(() => {
 setshowing(false)
-}, [username,password])
+}, [password])
 useEffect(() => {
 
 }, [rendered])
 
-
-
     const ValidateLogin=()=>{
          if(/^\w{3,}@\w{3,}\.\w{2,}$/gim.test(email.trim())==false){
-            seterror("Add a valid emial eg. heythere@gmail.com");
+            seterrors("Add a valid emial eg. heythere@gmail.com");
         return false;
         } 
         else if (/\s/gim.test(email)){
-            seterror("email should not be spaced");
+            seterrors("email should not be spaced");
         return false
         }
-         else if(username==""){
-            seterror("Add a valid username");
-        return false;
-        } 
-        else if (/\s/gim.test(username)){
-            seterror("Username should not be spaced");
-        return false;
-        }
-       else if(username.length<7){
-            seterror("Username must be at least 8 char long");
-        return false;
-        } 
+    
+       else if(firstName==""){
+          seterrors("Add a valid firstName");
+      return false;
+      } 
+      else if(lastName==""){
+         seterrors("Add a valid lastName");
+     return false;
+     } 
+ 
+    else if (/\s/gim.test(firstName)){
+        seterrors("firstName should not be spaced");
+    return false;
+    }
+ 
+else if (/\s/gim.test(lastName)){
+    seterrors("lastName should not be spaced");
+return false;
+}
         else if(password==""){
-            seterror("Add a valid password");
+            seterrors("Add a valid password");
         return false;
         }
         else if (/\s/gim.test(password)){
-            seterror("Password should not be spaced");
+            seterrors("Password should not be spaced");
         return false;
 
         }
-        else if(phone.length<3){
-            seterror("Add a valid phone number");
+        else if(msisdn.length<3){
+            seterrors("Add a valid phone number");
         return false;
         }
 
         else if(password.length<7){
-            seterror("password must be at least 8 char long");
+            seterrors("password must be at least 8 char long");
         return false;
         }
         else if (confirmpassword != password){
-            seterror("Enter the same password to confirm")
+            seterrors("Enter the same password to confirm")
         return false;
 
         }
         else{
-            setrendered("Verify")
+            setindics(true)
+            authenticate()
+
         }
     }
+  
+const authenticate= ()=>{
+    let id =`${new Date().getTime()}`
+    let payloadData={id,email,msisdn,firstName,lastName,password}
+    const options = {
+        method: 'POST',
+        headers: {
+            "User-Agent":"Apidog/1.0.0 (https://apidog.com)",
+            "Content-Type":"application/json"},
+        body:JSON.stringify(payloadData),
+        redirect: 'follow'
+     };
+     
 
+fetch("https://cyberearn-staging.up.railway.app/api/v1/auth/register", options)
+.then(response => response.json())
+.then((result) =>{result.status?populate(result):servererrors(result)})
+.catch((error)=>{ seterrors(`check connectivity`)})
+}
+const populate=(result)=>{
+    setlogged({...result.data.userData,accessToken:result.data.token,refreshToken:result.data.refreshToken});
+    setindics(false);
+    setTimeout(()=>{setrendered("Verify")},10)
+}
+
+const servererrors=(pop)=>{
+    seterrors(pop.message)
+setTimeout(() => {
+    setshowing(false)
+
+}, 3000);
+
+}
+
+useEffect(() => {
+    try{
+        logged.id!=""
+        ?localStorage.setItem("userInfo",JSON.stringify(logged))
+        :false
+
+    }
+    catch(err){err=>alert("Error",err)
+
+    }
+}, [logged])
 
   return  (
  <>
@@ -95,32 +155,37 @@ useEffect(() => {
         <div className="signuptext">sign In</div>
         </div>
     <div className="signupimg">
-        <img className='imgs glow huge fill' src={headlogo} alt="" srcset="" />
-        <img className='imgs mask huge fill' src={headlogo} alt="" srcset="" />
+        <img className='imgs glow huge fill' src={headlogo} alt=""  />
+        <img className='imgs mask huge fill' src={headlogo} alt=""  />
         </div>
         <div className="inputs">
-<input className='input' type="email" onChange={(e)=>setemail(e.currentTarget.value)} placeholder='Email...' name="" id="" />
-<div className="font"><img src={Seen} className='smallimage'/></div>
-</div>
-        <div className="inputs">
-<input className='input' type="text" onChange={(e)=>setusername(e.currentTarget.value)} placeholder='username...' name="" id="" />
+<input className='input' type="email" onChange={(e)=>setemail(e.currentTarget.value)} placeholder='Email...'  />
 <div className="font"><img src={Person} className='smallimage'/></div>
 </div>
+        <div className="inputs">
+<input className='input' type="text" onChange={(e)=>setfirstName(e.currentTarget.value)} placeholder='firstName...'  />
+<div className="font"><img src={Person} className='smallimage'/></div>
+</div>
+        <div className="inputs">
+<input className='input' type="text" onChange={(e)=>setlastName(e.currentTarget.value)} placeholder='lastName...'  />
+<div className="font"><img src={Person} className='smallimage'/></div>
+</div>
+     
 <div className="inputs">
-<input className='input' type="text" onChange={(e)=>setpassword(e.currentTarget.value)} placeholder='password...' name="" id="" />
-<div className="font"><img src={Seen} className='smallimage'/></div>
+<input className='input' type={toggled?"text":"password"} onChange={(e)=>setpassword(e.currentTarget.value)} placeholder='password...'  />
+<div className="font"><img onClick={()=>{settoggled(!toggled)}} src={Seen} className='smallimage'/></div>
 </div>
 <div className="inputs">
-<input className='input' type="text" onChange={(e)=>setconfirmpassword(e.currentTarget.value)} placeholder='Confirm password...' name="" id="" />
-<div className="font"><img src={Seen} className='smallimage'/></div>
+<input className='input' type={toggled?"text":"password"} onChange={(e)=>setconfirmpassword(e.currentTarget.value)} placeholder='Confirm password...'  />
+<div className="font"><img onClick={()=>{settoggled(!toggled)}} src={Seen} className='smallimage'/></div>
 </div>
 <div className="inputs">
-<input className='input' type="tel" onChange={(e)=>setphone(e.currentTarget.value)} placeholder='Phone...' name="" id="" />
-<div className="font"><img src={Seen} className='smallimage'/></div>
+<input className='input' type="tel" onChange={(e)=>setmsisdn(e.currentTarget.value)} placeholder='Phone...'  />
+<div className="font"><img src={phonepic} className='smallimage'/></div>
 </div>
 <div className="signinbox">
 <div className="signupbtn" onClick={ValidateLogin}>
-    continue
+    {indics?"...":"continue"}
     </div></div>
 <fieldset>
 <legend>

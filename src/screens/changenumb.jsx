@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from 'react'
 
 export default function Changenumb({setchangenum,changenum}) {
-const [mobilenum, setmobilenum] = useState("0552222222")
+const [mobilenum, setmobilenum] = useState("")
+const [numdial, setnumdial] = useState("")
+
 const confirmnumb=()=>{
     setchangenum(false)
-
+    dialed.msisdn=numdial
+    localStorage.setItem("userInfo",JSON.stringify(dialed))
 }
-useEffect(() => {
+let dialed = JSON.parse(localStorage.getItem("userInfo"));
+let temp=dialed.msisdn;
+setmobilenum(temp)
 
-}, [changenum])
 
   return (
-      <div className="changenum">
+      <form className="changenum">
             <div className="phonebox">
                 <div className="message">
                     Enter you 
@@ -27,7 +31,7 @@ useEffect(() => {
                         <img src="" alt="" />
                         
                         <div className="leftcontent">233</div></div>
-                    <div className="right"><input type="tel" placeholder="Enter phone" className='vernuminput'/></div>
+                    <div className="right"><input type="number" onChange={(e)=>setnumdial(e.currentTarget.value)} placeholder="Enter phone" className='vernuminput'/></div>
                 </div>
             <div className="sendbtn" onClick={confirmnumb}>
                 <span>Add Number</span>
@@ -36,6 +40,6 @@ useEffect(() => {
                 <span>Cancel</span>
             </div>
             </div>
-        </div>
+        </form>
   )
 }

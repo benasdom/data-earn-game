@@ -13,12 +13,19 @@ import Profile from './profile'
 
 export default function Platform() {
 const [rendered, setrendered] = useState("Login")
+const [currentuser, setcurrentuser] = useState("")
 
 
 const ar=["Home","Earn","Referals","Stats","Signup","Login","Verify","Profile"]
 const componentrendered=(option)=>{
   setrendered(option)
 }
+
+useEffect(() => {
+  let response = localStorage.getItem("userInfo");
+  setcurrentuser(response)
+
+}, [currentuser])
 
       
   return (
@@ -27,14 +34,14 @@ const componentrendered=(option)=>{
     <div className="homepage">
 
         {
-          rendered==ar[0]?<Homescreen setrendered={setrendered} rendered={rendered}/>
+          rendered==ar[0]?<Homescreen setcurrentuser={setcurrentuser} currentuser={currentuser} setrendered={setrendered} rendered={rendered}/>
         :(rendered==ar[1]?<Earn setrendered={setrendered}/>
         :(rendered==ar[2]?<Referals setrendered={setrendered}/>
         :(rendered==ar[3]?<Stats setrendered={setrendered}/>
         :(rendered==ar[4]?<Signup setrendered={setrendered} rendered={rendered}/>
         :(rendered==ar[5]?<Login setrendered={setrendered} rendered={rendered}/>
         :(rendered==ar[6]?<Verfiy setrendered={setrendered} rendered={rendered}/>
-        :(rendered==ar[7]?<Profile setrendered={setrendered}/>
+        :(rendered==ar[7]?<Profile setcurrentuser={setcurrentuser} currentuser={currentuser} setrendered={setrendered}/>
         :<Login setrendered={setrendered} rendered={rendered}/>))
         ))
         )))

@@ -6,14 +6,20 @@ import gool from '../assets/gool.png'
 import headlogo from '../assets/headlogo.png'
 
 export default function Login({setrendered,rendered}) {
-const [username, setusername] = useState("")
+const [email, setemail] = useState("")
 const [password, setpassword] = useState("")
 const [showing, setshowing] = useState(false)
 const [message, setmessage] = useState(false)
+const [toggled, settoggled] = useState(false)
+const [indics, setindics] = useState(false)
+const [logged, setlogged] = useState({
+    id:'', dateCreated:'',firstName:'', lastName:'',msisdn:''
+})
 
 let err=document.querySelector(".errors");
 
-const seterror=(pop)=>{
+const seterrors=(pop)=>{
+    setindics(false)
     setmessage(pop)
     setshowing(true)
     return ()=>{err.textContent=message}
@@ -22,23 +28,22 @@ const seterror=(pop)=>{
 }
 useEffect(() => {
 setshowing(false)
-}, [username,password])
+if(localStorage.getItem("userInfo")){
+    setrendered("Home")
+}
+}, [email,password,rendered])
 
 
 
     const ValidateLogin=()=>{
-         if(username==""){
-            seterror("Add a valid username");
+        if(/^\w{3,}@\w{3,}\.\w{2,}$/gim.test(email.trim())==false){
+            seterrors("Add a valid emial eg. heythere@gmail.com");
         return false;
         } 
-        else if (/\s/gim.test(username)){
-            seterror("Username should not be spaced");
-
+        else if (/\s/gim.test(email)){
+            seterrors("email should not be spaced");
+        return false
         }
-       else if(username.length<7){
-            seterror("Email must be at least 8 char long");
-        return false;
-        } 
         else if(password==""){
             seterror("Add a valid password");
         return false;
@@ -52,11 +57,62 @@ setshowing(false)
             seterror("password must be at least 8 char long");
         return false;
         }else{
-            setrendered("Home")
+            setindics(true)
+            authenticate()
+
         }
     }
+    const authenticate=()=>{
+        let id =`${new Date().getTime()}`
+        let payloadData={email,password}
+        const options = {
+            method: 'POST',
+            headers: {
+                "User-Agent":"Apidog/1.0.0 (https://apidog.com)",
+                "Content-Type":"application/json"},
+            body:JSON.stringify(payloadData),
+            redirect: 'follow'
+         };
+         
+    
 
-  return (
+fetch("https://cyberearn-staging.up.railway.app/api/v1/auth/login", options)
+.then(response => response.json())
+.then((result) =>{result.status?populate(result):servererrors(result)})
+.catch((error)=>{ seterrors(`check connectivity`)})
+    }
+
+    const populate=(result)=>{
+        console.log(result)
+
+        setlogged({...result.data.userData,accessToken:result.data.token,refreshToken:result.data.refreshToken});
+        setindics(false);
+        setTimeout(()=>{setrendered("Home")},10)
+    }
+    
+    const servererrors=(pop)=>{
+    seterrors(pop.message)
+    setTimeout(() => {
+        setshowing(false)
+    
+    }, 3000);
+    
+    }
+    
+    useEffect(() => {
+        try{
+            logged.id!=""
+            ?localStorage.setItem("userInfo",JSON.stringify(logged))
+            :false
+    
+        }
+        catch(err){err=>alert("Error",err)
+    
+        }
+    }, [logged])
+    
+    
+    return (
     <>
     
     <div className="authpage">
@@ -68,21 +124,21 @@ setshowing(false)
         <div className="signuptext">sign up</div>
         </div>
     <div className="image">
-        <img className='imgs glow huge fill' src={headlogo} alt="" srcset="" />
-        <img className='imgs mask huge fill' src={headlogo} alt="" srcset="" />
+        <img className='imgs glow huge fill' src={headlogo} alt=""  />
+        <img className='imgs mask huge fill' src={headlogo} alt=""  />
         </div>
         <div className="inputs">
-<input className='input' type="text" onChange={(e)=>setusername(e.currentTarget.value.trim())} placeholder='username...' name="" id="" />
+<input className='input' type="text" onChange={(e)=>setemail(e.currentTarget.value.trim())} placeholder='email...' />
 <div className="font"><img src={Person} className='smallimage'/></div>
 </div>
 <div className="inputs">
-<input className='input' type="password" onChange={(e)=>setpassword(e.currentTarget.value)} placeholder='password...' name="" id="" />
-<div className="font"><img src={Seen} className='smallimage'/></div>
+<input className='input' type={toggled?"text":"password"} onChange={(e)=>setpassword(e.currentTarget.value)} placeholder='password...' />
+<div className="font"><img onClick={()=>{settoggled(!toggled)}} src={Seen} className='smallimage'/></div>
 
 
 </div>
 <div className="signinbox">
-    <div className="signin" onClick={ValidateLogin}>sign in</div>
+    <div className="signin" onClick={ValidateLogin}>{indics?"...":"Sign In"}</div>
     <div className="forget"> forgot password</div>
 </div>
 <fieldset>
