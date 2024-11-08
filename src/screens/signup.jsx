@@ -102,7 +102,7 @@ return false;
   
 const authenticate= ()=>{
     let id =`${new Date().getTime()}`
-    let payloadData={id,email,msisdn,firstName,lastName,password}
+    let payloadData={email,msisdn,firstName,lastName,password}
     const options = {
         method: 'POST',
         headers: {

@@ -4,14 +4,24 @@ export default function Changenumb({setchangenum,changenum}) {
 const [mobilenum, setmobilenum] = useState("")
 const [numdial, setnumdial] = useState("")
 
+
+useEffect(() => {
+    let dialed = JSON.parse(localStorage.getItem("userInfo"));
+    let temp=dialed.msisdn;
+    setnumdial(temp)
+}, [])
+
 const confirmnumb=()=>{
-    setchangenum(false)
+    let dialed = JSON.parse(localStorage.getItem("userInfo"));
     dialed.msisdn=numdial
     localStorage.setItem("userInfo",JSON.stringify(dialed))
+    setchangenum(false)
+
 }
-let dialed = JSON.parse(localStorage.getItem("userInfo"));
-let temp=dialed.msisdn;
-setmobilenum(temp)
+const cancel=()=>{
+    setchangenum(false)
+}
+
 
 
   return (
@@ -31,12 +41,12 @@ setmobilenum(temp)
                         <img src="" alt="" />
                         
                         <div className="leftcontent">233</div></div>
-                    <div className="right"><input type="number" onChange={(e)=>setnumdial(e.currentTarget.value)} placeholder="Enter phone" className='vernuminput'/></div>
+                    <div className="right"><input type="number" value={numdial} onChange={(e)=>setnumdial(e.currentTarget.value)} placeholder="Enter phone" className='vernuminput'/></div>
                 </div>
             <div className="sendbtn" onClick={confirmnumb}>
                 <span>Add Number</span>
             </div>
-            <div className="sendbtn cancel" onClick={confirmnumb}>
+            <div className="sendbtn cancel" onClick={cancel}>
                 <span>Cancel</span>
             </div>
             </div>
