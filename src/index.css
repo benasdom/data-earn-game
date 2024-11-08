@@ -28,7 +28,7 @@
   background-size:1200px 1200px;
   z-index: -1;
   opacity:0;
-  position:absolute;
+  position:fixed;
   animation:fadeout 4.5s ease-out;
 }
 img,div,span,a{
