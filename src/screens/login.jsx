@@ -141,6 +141,9 @@ fetch("https://cyberearn-staging.up.railway.app/api/v1/auth/login", options)
     <div className="signin" onClick={ValidateLogin}>{indics?"...":"Sign In"}</div>
     <div className="forget"> forgot password</div>
 </div>
+<div className="signup" onClick={()=>{setrendered("Signup")}}>
+        <div className="signuptext">sign up</div>
+        </div>
 <fieldset>
 <legend>
     <div className="or"> Or</div>
@@ -153,6 +156,7 @@ fetch("https://cyberearn-staging.up.railway.app/api/v1/auth/login", options)
         <div className="sentence"> sign up with</div>
         <div className="logo"><img src={gool} className='gimg'/></div>
     </div>
+    
 <div className="powered">
     Powered by UnityElites
 </div>

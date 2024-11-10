@@ -14,7 +14,6 @@ function App() {
  {/* <Login/> */}
  <Platform/>
  {/* <Profile/> */}
- 
  {/* <Verfiy/> */}
  </>
   )

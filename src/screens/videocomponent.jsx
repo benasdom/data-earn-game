@@ -5,6 +5,7 @@ import coinstacked from '../assets/coinstacked.png'
 
 
 export default function Videocomponent({mine,megabites}) {
+
     
     return (
           <>

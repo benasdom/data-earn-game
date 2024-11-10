@@ -26,15 +26,17 @@ useEffect(() => {
   setcurrentuser(response)
 
 }, [currentuser])
-
-      
+const [themed, setthemed] = useState(false)
+const optioned={
+  themed,setthemed
+}
   return (
 
     <>
     <div className="homepage">
 
         {
-          rendered==ar[0]?<Homescreen setcurrentuser={setcurrentuser} currentuser={currentuser} setrendered={setrendered} rendered={rendered}/>
+          rendered==ar[0]?<Homescreen setthemed={setthemed} themed={themed} setcurrentuser={setcurrentuser} currentuser={currentuser} setrendered={setrendered} rendered={rendered}/>
         :(rendered==ar[1]?<Earn setrendered={setrendered}/>
         :(rendered==ar[2]?<Referals setrendered={setrendered}/>
         :(rendered==ar[3]?<Stats setrendered={setrendered}/>

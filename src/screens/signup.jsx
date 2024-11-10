@@ -159,15 +159,15 @@ useEffect(() => {
         <img className='imgs mask huge fill' src={headlogo} alt=""  />
         </div>
         <div className="inputs">
-<input className='input' type="email" onChange={(e)=>setemail(e.currentTarget.value)} placeholder='Email...'  />
+<input className='input' type="email" onChange={(e)=>setemail(e.currentTarget.value)} placeholder='email...'  />
 <div className="font"><img src={Person} className='smallimage'/></div>
 </div>
         <div className="inputs">
-<input className='input' type="text" onChange={(e)=>setfirstName(e.currentTarget.value)} placeholder='firstName...'  />
+<input className='input' type="text" onChange={(e)=>setfirstName(e.currentTarget.value)} placeholder='first name...'  />
 <div className="font"><img src={Person} className='smallimage'/></div>
 </div>
         <div className="inputs">
-<input className='input' type="text" onChange={(e)=>setlastName(e.currentTarget.value)} placeholder='lastName...'  />
+<input className='input' type="text" onChange={(e)=>setlastName(e.currentTarget.value)} placeholder='last name...'  />
 <div className="font"><img src={Person} className='smallimage'/></div>
 </div>
      
@@ -176,17 +176,21 @@ useEffect(() => {
 <div className="font"><img onClick={()=>{settoggled(!toggled)}} src={Seen} className='smallimage'/></div>
 </div>
 <div className="inputs">
-<input className='input' type={toggled?"text":"password"} onChange={(e)=>setconfirmpassword(e.currentTarget.value)} placeholder='Confirm password...'  />
+<input className='input' type={toggled?"text":"password"} onChange={(e)=>setconfirmpassword(e.currentTarget.value)} placeholder='confirm password...'  />
 <div className="font"><img onClick={()=>{settoggled(!toggled)}} src={Seen} className='smallimage'/></div>
 </div>
 <div className="inputs">
-<input className='input' type="tel" onChange={(e)=>setmsisdn(e.currentTarget.value)} placeholder='Phone...'  />
+<input className='input' type="tel" onChange={(e)=>setmsisdn(e.currentTarget.value)} placeholder='phone...'  />
 <div className="font"><img src={phonepic} className='smallimage'/></div>
 </div>
 <div className="signinbox">
 <div className="signupbtn" onClick={ValidateLogin}>
     {indics?"...":"continue"}
     </div></div>
+    <div className="signup" onClick={()=>{setrendered("Login")}}>
+        <div className="signuptext ">sign In</div>
+        </div>
+   
 <fieldset>
 <legend>
     <div className="or"> Or</div>

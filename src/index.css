@@ -19,12 +19,13 @@
   background:transparent;
 }
 .splashscreen{
-  height:100vh;
+  height:110vh;
   width:100%;
   top:0;
   margin-top: -10px;
   padding:0px;
-  background: repeating-radial-gradient(#17191f,rgba(50,50,50,.99) 3em);
+  background:
+  repeating-radial-gradient(#17191f,rgba(50,50,50,.99) 3em);
   background-size:1200px 1200px;
   z-index: -1;
   opacity:0;
@@ -35,9 +36,13 @@ img,div,span,a{
   user-select: none;
  
 }
+.vanish{
+  visibility:hidden !important;
+}
+
 
 @keyframes fadeout{
-  0%,60%{
+  0%,90%{
     display:flex;
     opacity:1;
     z-index:1000;
@@ -602,9 +607,11 @@ height:100px;
   display:flex;
   justify-content: center;
   width:90%;
-  margin-top:5px;
-  border-radius: 10px;;
+  margin-top:3px;
+  border-radius: 10px;
+  background-position:left;
   align-items: center;
+
 }
 .trow2{
   position:absolute;
@@ -618,6 +625,24 @@ height:100px;
   background:rgba(0, 0, 0, 0.381);
   backdrop-filter: blur(4rem);
   z-index:200;
+}
+.loader{
+  background-image:
+  linear-gradient(
+    90deg, rgba(255,255,255,.05),rgba(255,255,255,.14),rgba(255,255,255,.05)) !important;
+  background-size:318px 120px !important;
+  background-position:0 0;
+  animation:bgload 1.3s linear  infinite !important;
+}
+
+@keyframes bgload{
+  0%{
+    background-position:0 0;
+  }
+100%{
+  background-position:200% 0;
+
+  }
 }
   .vidgame{
   width:48.5%;
@@ -642,7 +667,7 @@ height:100px;
   flex-direction: row;
   justify-content:space-around;
   flex-wrap: wrap;
-  max-height: 500px;
+  max-height: 350px;
   padding-bottom: 80px;
   overflow-y:scroll;
 }
@@ -665,6 +690,7 @@ height:100px;
   align-items: center;
   flex-direction: row;
 }
+
 .viditems{
   min-width:160px;
   border-radius:10px;
@@ -1782,7 +1808,7 @@ z-index:2;
     display:flex;
     position:relative;
     width:100%;
-    height:215px;
+    height:210px;
     overflow:clip;
     top:0;
     background:#1a1a1a;
@@ -2118,7 +2144,8 @@ animation:hide 6s linear forwards;
 }
 .input::placeholder{
   padding:10px;
-  color:gold;
+  color:rgba(230,240,253,.3);
+  color:#EDBC4A;
   font-size:20px;
 
 
@@ -2127,9 +2154,12 @@ animation:hide 6s linear forwards;
   .input{
   outline:none;
   border:0px;
-  width:250px;
+  width:240px;
   height:100%;
+  padding-left:10px;
+  font-size:20px;
   background:none;
+  border-radius:10px;
 }
 .inputs{
   height:50px;
@@ -2142,6 +2172,7 @@ animation:hide 6s linear forwards;
   border-radius: 10px;
   border:1px solid rgb(242, 207, 4);
   margin-bottom:15px;
+  font-size:20px;
   color:white;
 }
 .signupbtn{
@@ -2155,6 +2186,8 @@ animation:hide 6s linear forwards;
   width:300px;
   border-radius: 10px;
   margin-bottom:15px;
+  letter-spacing:1px;
+  text-shadow:0px 0px 30px black;
   background:#D7951B;
   color:white;
 
@@ -2175,6 +2208,8 @@ animation:hide 6s linear forwards;
   width: 100%;
   height:70px;
   display:flex;
+  letter-spacing:1px;
+  text-shadow:0px 0px 30px black;
   align-items: center;
   justify-content: space-between;
 

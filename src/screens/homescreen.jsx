@@ -5,7 +5,7 @@ import shovel from '../assets/shovel.png'
 import dp from '../assets/brown.jpg'
 
 
-function Homescreen({setrendered,rendered,currentuser}) {
+function Homescreen({setthemed,themed,setrendered,rendered,currentuser}) {
     const [username, setusername] = useState("")
     const [dated, setdated] = useState("")
     const [earnedtoday, setearnedtoday] = useState("900")
@@ -17,7 +17,6 @@ function Homescreen({setrendered,rendered,currentuser}) {
     const [mounted, setmounted] = useState(false)
 
 useEffect(() => {
-
 let datestring=`${new Date()}`.split(" ")
 setdated((`${datestring[2]} ${datestring[1]} ${datestring[3]}`))
 let stored=localStorage.getItem("userInfo");
@@ -37,6 +36,7 @@ stored!=null?setusername((JSON.parse(stored).firstName)):false
 }, [mounted])
 
 useEffect(() => {
+
     setmounted(!mounted)
     if(rendered=="Home"){
             let listed=[...document.querySelectorAll(".navitems")];
@@ -53,11 +53,26 @@ useEffect(() => {
             
     }else{false}
 
-}, [gbused,rendered,username])
+}, [gbused,username])
+
+useEffect(() => {
+
+  return () => {
+    let runs=false;
+    !runs? toggletheme():false;
+  
+     return()=>{
+      runs=true;
+     }  }
+}, [])
+
+
 
 const toggletheme=()=>{
-    document.querySelector(".headshot").classList.toggle("headshotlost")
-    document.querySelector(".startearn2").classList.toggle("earn2lost")
+    document.querySelector(".headshot")?.classList.toggle("headshotlost")
+    document.querySelector(".startearn2")?.classList.toggle("earn2lost")
+    setthemed(!themed)
+
 }
 
 const earnpage=()=>{
