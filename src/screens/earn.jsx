@@ -5,7 +5,6 @@ import mine from '../assets/mine.png'
 import coin from '../assets/coin.png'
 import Gamecomponent from './gamecomponent'
 import Gamebottom from './gamebottom'
-import Vplayer from './vplayer'
 import Vidbottom from './vidbottom'
 import Topbar from './topbar'
 
@@ -60,7 +59,7 @@ useEffect(() => {
   </div>
 
 </div>
-{player?<div className="vidplayer lighter">{<Vplayer playing={playing} setplayer={setplayer}/>}</div>:false}
+{/* {player?<div className="vidplayer lighter">{<Vplayer playing={playing} setplayer={setplayer}/>}</div>:false} */}
 
 <div className="roundedcontent">
 {player?<div className="vidplayer"></div>:false}
