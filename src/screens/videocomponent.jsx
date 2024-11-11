@@ -4,12 +4,12 @@ import coinstacked from '../assets/coinstacked.png'
 
 
 
-export default function Videocomponent({mine,megabites}) {
+export default function Videocomponent({mine,megabites,checking}) {
 
     
     return (
           <>
-             <div className="vidcomp">
+             <div className="vidcomp"  style={checking?{filter:"grayscale(1)"}:{}}>
           <div className="frow">
   <div className="vid">Video Combo</div>
   <div className="dots">

@@ -3,13 +3,13 @@ import mine from '../assets/mine.png'
 import play from '../assets/play.png'
 import coin from '../assets/coin.png'
 
-export default function Gamebottom() {
+export default function Gamebottom({checking,setplaer,setplaying,setchecking}) {
     const [mins, setmins] = useState("Puzzle game")
     const [itemfig, setitemfig] = useState("900")
 
   return (
         <div className="comp">
-        {Array(20).fill("").map((a,b)=>{
+        {setchecking(false), Array(20).fill("").map((a,b)=>{
          return (
           <div className="gameitems" key={b+""}>
           <div className="gameitemschild">

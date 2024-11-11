@@ -5,12 +5,16 @@ import mine from '../assets/mine.png'
 import coin from '../assets/coin.png'
 import Gamecomponent from './gamecomponent'
 import Gamebottom from './gamebottom'
+import Vplayer from './vplayer'
 import Vidbottom from './vidbottom'
 import Topbar from './topbar'
 
 function Earn({setrendered}) {
     const [megabites, setmegabites] = useState("900")
 const [gamefloor, setgamefloor] = useState(false)
+const [checking, setchecking] = useState(false)
+const [player, setplayer] = useState(false)
+const [playing, setplaying] = useState("")
 
 let gameup=
 [
@@ -37,13 +41,12 @@ let gameup=
       
 useEffect(() => {
       gamefloor?trig():untrig()
-}, [gamefloor])
+}, [gamefloor,checking])
 
 
   
   return (
 <div className="pagecontent">
-
 <Topbar  setrendered={setrendered}/>
 <div className="nextbar">
   <div className="coincentered">
@@ -57,10 +60,13 @@ useEffect(() => {
   </div>
 
 </div>
+{player?<div className="vidplayer lighter">{<Vplayer playing={playing} setplayer={setplayer}/>}</div>:false}
 
 <div className="roundedcontent">
+{player?<div className="vidplayer"></div>:false}
 
-{gamefloor?<Gamecomponent trig={trig} gamefloor={gamefloor} megabites={megabites} />:  <Videocomponent untrig={untrig} gamefloor={gamefloor} megabites={megabites} mine={mine}/>
+{gamefloor?<Gamecomponent  trig={trig} gamefloor={gamefloor} megabites={megabites} />
+:  <Videocomponent checking={checking} untrig={untrig} gamefloor={gamefloor} megabites={megabites} mine={mine}/>
 }
   <div className="ffrow">
     <div className="toproamer">
@@ -69,7 +75,8 @@ useEffect(() => {
     <div className="vidgame"  onClick={trig}>Games</div>
   </div>
   <div className="fvrow">
-  {gamefloor?<Gamebottom  />:  <Vidbottom />}
+  {gamefloor?<Gamebottom setplayer={setplayer} setplaying={setplaying}  setchecking={setchecking} />
+  :  <Vidbottom setplayer={setplayer} setplaying={setplaying} setchecking={setchecking} />}
   </div>
 </div>
         </div>  )

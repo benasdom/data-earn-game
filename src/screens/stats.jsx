@@ -22,12 +22,12 @@ export default function Stats({setrendered}) {
 <path d="M186.4 21.5139C204.421 22.9626 221.794 28.8909 236.942 38.7602C252.089 48.6295 264.531 62.127 273.137 78.0265C281.743 93.9261 286.24 111.724 286.219 129.803C286.199 147.882 281.662 165.67 273.02 181.55C264.378 197.43 251.906 210.899 236.736 220.734C221.566 230.569 204.179 236.458 186.155 237.866C168.131 239.274 150.04 236.156 133.527 228.796C117.014 221.436 102.602 210.067 91.5987 195.722" stroke="url(#paint1_linear_785_276)" stroke-width="10" stroke-linecap="round"/>
 <defs>
 <linearGradient id="paint0_linear_785_276" x1="128.082" y1="34.93" x2="319.206" y2="49.091" gradientUnits="userSpaceOnUse">
-<stop stop-color="#0DA6C2"/>
-<stop offset="1" stop-color="#61DE70"/>
+<stop stopColor="#0DA6C2"/>
+<stop offset="1" stopColor="#61DE70"/>
 </linearGradient>
 <linearGradient id="paint1_linear_785_276" x1="46.1232" y1="335.814" x2="296.396" y2="325.07" gradientUnits="userSpaceOnUse">
-<stop stop-color="#9327F0"/>
-<stop offset="1" stop-color="#320DAF"/>
+<stop stopColor="#9327F0"/>
+<stop offset="1" stopColor="#320DAF"/>
 </linearGradient>
 </defs>
 </svg>

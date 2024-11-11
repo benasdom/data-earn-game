@@ -47,7 +47,7 @@ roamer.style.cssText=`left:${roam}%`
     {menu.map((a,b)=>
   
  <div className="navitems" key={b+""} data-text={a.datatext} onClick={(e)=>{activate(e.currentTarget)}}>
-    <div className="navicon"><img className='imgicon' src={a.img} alt="" srcset="" /></div>
+    <div className="navicon"><img className='imgicon' src={a.img} alt=""  /></div>
     <div className="navtext">{a.text}</div>
 </div>
 

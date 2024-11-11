@@ -3,7 +3,7 @@ import mine from '../assets/mine.png';
 import play from '../assets/play.png';
 import coin from '../assets/coin.png';
 
-export default function Vidbottom() {
+export default function Vidbottom({setchecking,setplayer,setplaying,checking}) {
   const [mins, setMins] = useState("90");
   const [vidData, setVidData] = useState([]);
   const [newToken, setNewToken] = useState("");
@@ -26,6 +26,7 @@ export default function Vidbottom() {
       })
       .then(data => {
         setVidData(data.data.videos);
+        console.log(data)
       })
       .catch(error => console.error("Error fetching videos"));
   }
@@ -50,6 +51,10 @@ export default function Vidbottom() {
         throw error;
       });
   }
+  const activatePlayer=(itemUrl)=>{
+    setplaying(itemUrl)
+    setplayer(true)
+  }
 
   useEffect(() => {
     if (accessToken && refreshToken) {
@@ -59,12 +64,12 @@ export default function Vidbottom() {
 
   return (
     <div className="comp">
-      {vidData.length > 0 ? (
+      {setchecking(false), vidData.length > 0 ? (
         vidData.map((item, index) => (
-          <div className="viditems" key={index}>
+          <div className="viditems" key={index+""} onClick={()=>{activatePlayer(item.url)}}>
             <div className="viditemschild">
               <div className="vidtop">
-                <img src={mine} className="vidtop" alt="" />
+                <img src={item.thumbnail} className="vidtop" alt="" />
               </div>
               <div className="vidtext">
                 <div className="vidtext1">{mins} mins</div>
@@ -81,8 +86,7 @@ export default function Vidbottom() {
             </div>
           </div>
         ))
-      ) : (
-        Array.from({ length: 10 }, (_, index) => (
+      ) : (setchecking(true), Array.from({ length: 10 }, (_, index) => (
           <div className="viditems loader" key={index}>
             <div className="viditemschild vanish">
               <div className="vidtop">

@@ -55,26 +55,52 @@ useEffect(() => {
 
 }, [gbused,username])
 
-useEffect(() => {
-
-  return () => {
-    let runs=false;
-    !runs? toggletheme():false;
-  
-     return()=>{
-      runs=true;
-     }  }
-}, [])
 
 
 
 const toggletheme=()=>{
-    document.querySelector(".headshot")?.classList.toggle("headshotlost")
-    document.querySelector(".startearn2")?.classList.toggle("earn2lost")
+
+    document.querySelector(".headshot")?.classList.add("headshotlost")
+    document.querySelector(".startearn2")?.classList.add("earn2lost")
     setthemed(!themed)
+    try{
+        localStorage.setItem("theme",JSON.stringify({selected:true}))
+    }
+    catch(error){
+        false
+    }
 
 }
 
+
+const removetheme=()=>{
+    document.querySelector(".headshot")?.classList.remove("headshotlost")
+    document.querySelector(".startearn2")?.classList.remove("earn2lost")
+    setthemed(!themed)
+    try{
+        localStorage.setItem("theme",JSON.stringify({selected:false}))
+    }
+    catch(error){
+        false
+    }
+}
+let storedtheme=JSON.parse(localStorage.getItem("theme"));
+useEffect(() => {
+storedtheme?setthemed(storedtheme.selected):false
+try{
+    storedtheme.selected?toggletheme():removetheme()
+
+}
+catch(err){
+    console.log("Theme failed to load")
+}
+    
+
+}, [])
+
+const toggle=()=>{
+    themed?toggletheme():removetheme()
+}
 const earnpage=()=>{
 setrendered("Earn")
 let listed=[...document.querySelectorAll(".navitems")];
@@ -98,15 +124,15 @@ roamer.style.cssText=`left:${roam}%`
 <div className="welcome">
     <div className="hello">
         <div className="hellotext">
-        Hi, {username.length>11?`${username.slice(0,10)}...!`:username}
+        Hi, {(username.length>11?`${username.slice(0,10)}...!`:username)+"👋"}
 
         </div>
         <div className="hellodate">
-            {dated}
+            📅 {dated}
         </div>
     </div>
     <div className="helloimg">
-        <img src={shovel} className='shovel' alt="" srcset="" />
+        <img src={shovel} className='shovel' alt=""  />
     </div>
 </div>
 <div className="userhomepic">
@@ -137,7 +163,7 @@ roamer.style.cssText=`left:${roam}%`
         <div className="dgridelements">
             <div className="dgridelement"><div className="circled">
             35<span className='td'>MB</span></div></div>
-            <div className="dgridelement"><img className='ttviews' src={coinstacked} alt="" srcset="" /></div>
+            <div className="dgridelement"><img className='ttviews' src={coinstacked} alt=""  /></div>
 
         </div>
     </div>
@@ -146,13 +172,13 @@ roamer.style.cssText=`left:${roam}%`
         <div className="dgridelements">
             <div className="dgridelement"><div className="circled">
             {totalwatched}<span className='td'>MB</span></div></div>
-            <div className="dgridelement"><img className='ttviews' src={coinstacked} alt="" srcset="" /></div>
+            <div className="dgridelement"><img className='ttviews' src={coinstacked} alt=""  /></div>
 
         </div>
     </div>
 </div>
 <div className="customization">
-    <div className="startearn2" onClick={toggletheme}>Toggle Theme</div>
+    <div className="startearn2" onClick={toggle}>Toggle Theme</div>
 </div>
 
 
