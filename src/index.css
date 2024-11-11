@@ -662,6 +662,7 @@ height:100px;
   justify-content:center;
   align-items:center;
   overflow:hidden;
+  z-index:100000;
   padding:20px;
   width:calc(100% - 20px);
   
