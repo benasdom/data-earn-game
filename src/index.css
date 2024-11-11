@@ -652,8 +652,8 @@ height:100px;
   top:0;
   z-index:1000;
   background:black;
-  transform:translateX(100%);
-  animation:showvid .5s ease-in-out forwards;
+  transform:translateY(100%);
+  animation:showvid .6s ease-in-out forwards;
 }
 .lighter{
   backdrop-filter:blur(.6rem);
@@ -663,34 +663,33 @@ height:100px;
   align-items:center;
   overflow:hidden;
   z-index:100000;
-  padding:20px;
-  width:calc(100% - 20px);
-  
+  padding:10px;
+  width:calc(100% - 10px); 
+  transform:translateY(100%);
+  animation:showvid .6s ease-in-out forwards;
+  animation-delay:1s;
 }
 .abs{
-  position:absolute;
-  top:0;
+  position:absolute !important;
+  top:0 !important;
 }
 .videoframe{
   width:calc(100% - 10px);
   border-radius:20px;
-  -webkit-aspect-ratio: 1/.7;
-  -moz-aspect-ratio: 1/.7;
-  -o-aspect-ratio: 1/.7;
-  aspect-ratio: 1/.7;
+  -webkit-aspect-ratio: 1/.8;
+  -moz-aspect-ratio: 1/.8;
+  -o-aspect-ratio: 1/.8;
+  aspect-ratio: 1/.8;
+  margin-top:-100px;
   border:2px solid white;
   background:black;
-
-
 }
 @keyframes showvid{
   0%{
-    transform:translateX(100%);
-
+    transform:translateY(100%);
   }
 100%{
-  transform:translateX(0%);
-
+  transform:translateY(0%);
   }
 }
   .vidgame{

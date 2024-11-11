@@ -33,3 +33,4 @@ export default function Gamebottom({checking,setplaer,setplaying,setchecking}) {
       </div>
         )
     }
+    
