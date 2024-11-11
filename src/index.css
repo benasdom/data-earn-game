@@ -669,6 +669,7 @@ height:100px;
 .abs{
   position:absolute;
   top:0;
+  display:flex;
 }
 .videoframe{
   width:calc(100% - 10px);
