@@ -31,6 +31,10 @@ const seterrors=(pop)=>{
     setmessage(pop)
     setindics(false);
     setshowing(true)
+    setTimeout(() => {
+        setshowing(false)
+
+    }, 6000);
     return ()=>{err.textContent=message}
     
 

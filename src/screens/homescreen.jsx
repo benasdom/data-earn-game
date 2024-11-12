@@ -23,8 +23,7 @@ let stored=localStorage.getItem("userInfo");
 stored!=null?setusername((JSON.parse(stored).firstName)):false
 
     return ()=>{
-
-        let usedup=((gbremaining/gbcurvetotal)*100);
+    let usedup=((gbremaining/gbcurvetotal)*100);
     setgbused(usedup)
     let cclast=[...document.querySelectorAll(".cc")][1];
     let dotlast=document.querySelector(".dot");
@@ -74,6 +73,7 @@ const toggletheme=()=>{
 
 
 const removetheme=()=>{
+
     document.querySelector(".headshot")?.classList.remove("headshotlost")
     document.querySelector(".startearn2")?.classList.remove("earn2lost")
     setthemed(!themed)

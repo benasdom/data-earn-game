@@ -116,6 +116,69 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+@media (min-width:1000px){
+  .myform::before{
+  height:fit-content !important;
+  -webkit-aspect-ratio: 1/1;
+  -moz-aspect-ratio: 1/1;
+  -o-aspect-ratio: 1/1;
+  aspect-ratio: 1/1;
+  }
+
+  .scorenum{
+    margin-top: -100px !important;
+  }
+  .roamed{
+    transform:translateY(-40%) scale(0.5) !important;
+    filter:blur(1.7rem) !important;
+  }
+  .scores{
+    -webkit-aspect-ratio: 1/.3 !important;
+    -moz-aspect-ratio: 1/.3 !important;
+    -o-aspect-ratio: 1/.3 !important;
+    aspect-ratio: 1/.3 !important;
+  }
+  .paths{
+    background:none !important;
+    opacity:.1 !important;
+    fill:white !important;
+  }
+  .statpath2,.statpath1{
+  fill:none !important;
+  stroke:none !important;
+
+  }
+  .statcontent{
+  flex-direction: row !important;
+  margin-top: -100px !important;
+  }
+  
+  .homepagecontrol{
+    padding-bottom: 200px;
+  }
+  .activated{
+    transform:translateY(-30%) scale(1.1) !important;
+  }
+
+  .navcontent{
+    /* display:none; */
+    transform: scaleY(0.3);
+    bottom:0 !important;
+    margin-bottom: -113px !important;
+    backdrop-filter:blur(4rem);
+  }
+  .navicon{
+    opacity:.9 !important;
+    background:rgba(0, 0, 0, 0.03) !important;
+
+  }
+  .earnleft:nth-child(1){
+    padding-left:20px;
+    padding-right:20px;
+    width:calc(50% - 20px);
+  }
+
+}
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -672,6 +735,8 @@ height:100px;
 .abs{
   position:absolute !important;
   top:0 !important;
+  z-index: 2;
+  backdrop-filter: blur(4rem);
 }
 .videoframe{
   width:calc(100% - 10px);
@@ -2166,7 +2231,6 @@ margin-bottom: -7%;
   object-position: cover;
   object-fit:cover;
   transition: all .3s ease-in-out;
-  
 }
 .signuptext{
 display: flex;
