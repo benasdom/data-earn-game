@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-export default function Changenumb({setchangenum,changenum,temptoken}) {
+export default function Changenumb({setchangenum,changenum,temptoken,nullify}) {
 const [mobilenum, setmobilenum] = useState("")
 const [numdial, setnumdial] = useState("")
 const [token, settoken] = useState("")
@@ -9,7 +9,7 @@ const [bools, setbools] = useState(false)
 
 
 useEffect(() => {
-    let dialed = JSON.parse(localStorage.getItem("userInfo"));
+    let dialed = JSON.parse(localStorage.getItem("tempuserInfo"));
     let temp=dialed.msisdn;
     let accessToken = dialed?.accessToken;
     setnumdial(temp)
@@ -29,9 +29,9 @@ const getOtp=()=>{
 
     try{
         fetch("https://cyberearn-staging.up.railway.app/api/v1/send/sms/otp",options)
-        .then((res)=>{ console.log(res);res.status==200?setbtn("sent"):false})
+        .then((res)=>{res.status==200?setbtn("sent"):false})
         .catch(()=>{ setbtn("retry")})
-        .finally(()=>{setbools(false);setchangenum(false)})
+        .finally(()=>{setbools(false);setchangenum(false); nullify()})
     }
     catch(err){
         alert(err)
@@ -39,13 +39,13 @@ const getOtp=()=>{
     }
 }
 const confirmnumb=()=>{
-    let dialed = JSON.parse(localStorage.getItem("userInfo"));
+    let dialed = JSON.parse(localStorage.getItem("tempuserInfo"));
     dialed.msisdn=numdial
-    localStorage.setItem("userInfo",JSON.stringify(dialed))
+    localStorage.setItem("tempuserInfo",JSON.stringify(dialed))
     
     try{token.length>1?getOtp(numdial):false}
     catch(err){
-        console.log(`${err}`)
+        alert(`${err}`)
     }
 
 

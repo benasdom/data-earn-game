@@ -17,6 +17,7 @@ function Homescreen({setthemed,themed,setrendered,rendered,currentuser}) {
     const [gbremaining, setgbremaining] = useState(1.8)
     const [mounted, setmounted] = useState(false)
 
+localStorage.removeItem("tempuserInfo");
 useEffect(() => {
 let datestring=`${new Date()}`.split(" ")
 setdated((`${datestring[2]} ${datestring[1]} ${datestring[3]}`))

@@ -140,9 +140,8 @@ setTimeout(() => {
 useEffect(() => {
     try{
         logged.id!=""
-        ?localStorage.setItem("userInfo",JSON.stringify(logged))
+        ?localStorage.setItem("tempuserInfo",JSON.stringify(logged))
         :false;
-        console.log(logged.accessToken)
         settemptoken(logged.accessToken)
 
     }
