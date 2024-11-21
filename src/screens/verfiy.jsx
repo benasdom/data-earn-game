@@ -16,9 +16,6 @@ export default function Verfiy({rendered,setrendered, temptoken}) {
         values.length==6?otpRequestCheck(values):false
     }
 const otpRequestCheck=(vals)=>{
-    alert(vals)
-    
-    
     const options = {
         method: 'POST',
         headers: {
@@ -29,8 +26,8 @@ const otpRequestCheck=(vals)=>{
 
     try{
         fetch("https://cyberearn-staging.up.railway.app/api/v1/verification",options)
-        .then((res)=>{ console.log(res);res.status==200?verified(res.status):false})
-        .catch(()=>{ setverbtn("retry");setbools(false)})
+        .then((res)=>{ console.log(res);res.status==200?setrendered("Home"):false})
+        .catch(()=>{ setverbtn("retry");alert("Something went wrong try again");setbools(false)})
         .finally(()=>{setbools(false)})
     }
     catch(err){
@@ -40,9 +37,7 @@ const otpRequestCheck=(vals)=>{
     }
 
 }
-const verified=(all)=>{
-    alert(all)?setrendered("Home"):false
-}
+ 
 const countdown=()=>{
     let resend=document.querySelector(".resend");
     resend.style.pointerEvents="none";
