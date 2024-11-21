@@ -5,6 +5,7 @@ import google from '../assets/google.png'
 import gool from '../assets/gool.png'
 import headlogo from '../assets/headlogo.png'
 import phonepic from '../assets/phone.png'
+import copy from '../assets/copied.png'
 
 
 export default function Signup({rendered,setrendered,settemptoken}) {
@@ -17,7 +18,9 @@ const [logged, setlogged] = useState({
 })
 const [password, setpassword] = useState("")
 const [confirmpassword, setconfirmpassword] = useState("")
+const [referalcode, setreferalcode] = useState("")
 const [msisdn, setmsisdn] = useState("")
+const [hasref, sethasref] = useState(false)
 const [showing, setshowing] = useState(false)
 const [toggled, settoggled] = useState(false)
 const [message, setmessage] = useState(false)
@@ -47,7 +50,7 @@ useEffect(() => {
 }, [rendered])
 
     const ValidateLogin=()=>{
-         if(/^\w{3,}@\w{3,}\.\w{2,}$/gim.test(email.trim())==false){
+         if(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/gim.test(email.trim())==false){
             seterrors("Add a valid emial eg. heythere@gmail.com");
         return false;
         } 
@@ -106,7 +109,7 @@ return false;
   
 const authenticate= ()=>{
     let id =`${new Date().getTime()}`
-    let payloadData={email,msisdn,firstName,lastName,password}
+    let payloadData={email,msisdn,firstName,lastName,password,referalcode}
     const options = {
         method: 'POST',
         headers: {
@@ -188,6 +191,27 @@ useEffect(() => {
 <input className='input' type="tel" onChange={(e)=>setmsisdn(e.currentTarget.value)} placeholder='phone...'  />
 <div className="font"><img src={phonepic} className='smallimage'/></div>
 </div>
+<div className="p">Do you have a referal code?</div>
+
+{
+hasref?(
+<>
+<div className="refcode marg" onClick={()=>{sethasref(false)}}>
+    remove referal section
+</div>
+<div className="inputs">
+<input className='input' type="tel" onChange={(e)=>setreferalcode(e.currentTarget.value)} placeholder='referal code...'  />
+<div className="font"><img src={copy} className='copyimga'/></div>
+</div>
+
+</>
+)
+:
+
+<div className="refcode marg" onClick={()=>{sethasref(true)}}>
+    Add a referal code
+</div>
+}
 <div className="signinbox">
 <div className="signupbtn" onClick={ValidateLogin}>
     {indics?"...":"continue"}

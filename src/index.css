@@ -1364,6 +1364,15 @@ width:100%;
   font-weight:600;
   text-align: left;
 }
+.marg{
+  margin-top:30px;
+  margin-bottom:20px;
+}
+.p{
+  color:lightgrey;
+  margin-top:15px;
+  font-size:12px;
+}
  .refcode{
   width:90%;
   display: flex;
@@ -2378,6 +2387,9 @@ animation:hide 6s linear forwards;
 }
 .smallimage{
   width:20px;
+}
+.copyimga{
+  width:40px;
 }
 .signinbox{
   width: 100%;

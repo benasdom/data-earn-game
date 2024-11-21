@@ -36,7 +36,7 @@ if(localStorage.getItem("userInfo")){
 
 
     const ValidateLogin=()=>{
-        if(/^\w{3,}@\w{3,}\.\w{2,}$/gim.test(email.trim())==false){
+        if(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/gim.test(email.trim())==false){
             seterrors("Add a valid emial eg. heythere@gmail.com");
         return false;
         } 
