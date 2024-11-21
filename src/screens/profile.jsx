@@ -13,7 +13,7 @@ import { useEffect } from 'react'
 
 
 
-export default function Profile({setrendered,currentuser,setcurrentuser}) {
+export default function Profile({setrendered,current,setcurrent,setcurrentuser}) {
 const [profilemail, setprofilemail] = useState("")
 const [profilename, setprofilename] = useState("")
 const [profilephone, setprofilephone] = useState("")
@@ -38,7 +38,6 @@ useEffect(() => {
     // curuser?setprofiledate(`${curuser.dated[2]} ${curuser.dated[1]} ${curuser.dated[3]}`):false
     curuser?setprofiledate(`${parse} ${today[1]}, ${today[3]}`):false
 }, [curuser])
-
 const logout=()=>{
     setindics(true)
     localStorage.clear()
@@ -46,10 +45,13 @@ const logout=()=>{
     setprofilemail("");
     setprofilephone("");
     setprofiledate("");
-    setcurrentuser("");
+    // setcurrentuser("");
     setTimeout(exits,10)
 
 
+}
+const goback=()=>{
+    setcurrent(!current)
 }
 const exits=()=>{
     setindics(false)
@@ -66,7 +68,7 @@ const exits=()=>{
         <div className="blured">
 
         <div className="topbar2">
-  <div className="back2" onClick={()=>{setrendered("Home")}}><img className="backicon3" src={back} alt=""  /></div>
+  <div className="back2" onClick={goback}><img className="backicon3" src={back} alt=""  /></div>
   <div className="title2"><div className="ttext2">~ {profilename.length>17?`${profilename.slice(0,15)}.`:profilename}
   ~</div></div>
   <div className="notice2"><img className="topimg" src={notify} alt="" /></div>

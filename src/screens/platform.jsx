@@ -14,6 +14,7 @@ import Profile from './profile'
 export default function Platform() {
 const [rendered, setrendered] = useState("Login")
 const [currentuser, setcurrentuser] = useState("")
+const [temptoken, settemptoken] = useState("")
 
 
 const ar=["Home","Earn","Referals","Stats","Signup","Login","Verify","Profile"]
@@ -40,9 +41,9 @@ const optioned={
         :(rendered==ar[1]?<Earn setrendered={setrendered}/>
         :(rendered==ar[2]?<Referals setrendered={setrendered}/>
         :(rendered==ar[3]?<Stats setrendered={setrendered}/>
-        :(rendered==ar[4]?<Signup setrendered={setrendered} rendered={rendered}/>
+        :(rendered==ar[4]?<Signup settemptoken={settemptoken} setrendered={setrendered} rendered={rendered}/>
         :(rendered==ar[5]?<Login setrendered={setrendered} rendered={rendered}/>
-        :(rendered==ar[6]?<Verfiy setrendered={setrendered} rendered={rendered}/>
+        :(rendered==ar[6]?<Verfiy temptoken={temptoken} setrendered={setrendered} rendered={rendered}/>
         :(rendered==ar[7]?<Profile setcurrentuser={setcurrentuser} currentuser={currentuser} setrendered={setrendered}/>
         :<Login setrendered={setrendered} rendered={rendered}/>))
         ))

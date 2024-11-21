@@ -1,21 +1,54 @@
 import React, { useEffect, useState } from 'react'
 
-export default function Changenumb({setchangenum,changenum}) {
+export default function Changenumb({setchangenum,changenum,temptoken}) {
 const [mobilenum, setmobilenum] = useState("")
 const [numdial, setnumdial] = useState("")
+const [token, settoken] = useState("")
+const [btn, setbtn] = useState("Add Number")
+const [bools, setbools] = useState(false)
 
 
 useEffect(() => {
     let dialed = JSON.parse(localStorage.getItem("userInfo"));
     let temp=dialed.msisdn;
+    let accessToken = dialed?.accessToken;
     setnumdial(temp)
+    settoken(accessToken)
+
 }, [])
 
+const getOtp=()=>{
+    setbools(true)
+    const options = {
+        method: 'POST',
+        headers: {
+            "Content-Type":"application/json",
+            "Authorization": `Bearer ${temptoken}`},
+        body:JSON.stringify({msisdn:numdial}),
+     };
+
+    try{
+        fetch("https://cyberearn-staging.up.railway.app/api/v1/send/sms/otp",options)
+        .then((res)=>{ console.log(res);res.status==200?setbtn("sent"):false})
+        .catch(()=>{ setbtn("retry")})
+        .finally(()=>{setbools(false);setchangenum(false)})
+    }
+    catch(err){
+        alert(err)
+
+    }
+}
 const confirmnumb=()=>{
     let dialed = JSON.parse(localStorage.getItem("userInfo"));
     dialed.msisdn=numdial
     localStorage.setItem("userInfo",JSON.stringify(dialed))
-    setchangenum(false)
+    
+    try{token.length>1?getOtp(numdial):false}
+    catch(err){
+        console.log(`${err}`)
+    }
+
+
 
 }
 const cancel=()=>{
@@ -44,7 +77,7 @@ const cancel=()=>{
                     <div className="right"><input type="number" value={numdial} onChange={(e)=>setnumdial(e.currentTarget.value)} placeholder="Enter phone" className='vernuminput'/></div>
                 </div>
             <div className="sendbtn" onClick={confirmnumb}>
-                <span>Add Number</span>
+                <span>{bools?"...":btn}</span>
             </div>
             <div className="sendbtn cancel" onClick={cancel}>
                 <span>Cancel</span>

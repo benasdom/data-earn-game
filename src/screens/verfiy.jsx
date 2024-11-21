@@ -4,12 +4,45 @@ import back from '../assets/back.png'
 import resend from '../assets/resend.png'
 import Changenumb from './changenumb'
 
-export default function Verfiy({rendered,setrendered}) {
+export default function Verfiy({rendered,setrendered, temptoken}) {
     const [changenum, setchangenum] = useState(true)
+    const [bools, setbools] = useState(false)
+    const [verbtn, setverbtn] = useState("Verify")
     const [counter, setcounter] = useState(10)
     const verifyOTP=()=>{
-        setrendered("Home")
+        setbools(true)
+        let boxes = [...document.querySelectorAll(".otpnumb")];
+        let values=boxes.map(a=>a.value).join("")
+        values.length==6?otpRequestCheck(values):false
     }
+const otpRequestCheck=(vals)=>{
+    alert(vals)
+    
+    
+    const options = {
+        method: 'POST',
+        headers: {
+            "Content-Type":"application/json",
+            "Authorization": `Bearer ${temptoken}`},
+        body:JSON.stringify({path:"msisdn",otp:vals}),
+     };
+
+    try{
+        fetch("https://cyberearn-staging.up.railway.app/api/v1/verification",options)
+        .then((res)=>{ console.log(res);res.status==200?verified(res.status):false})
+        .catch(()=>{ setverbtn("retry");setbools(false)})
+        .finally(()=>{setbools(false)})
+    }
+    catch(err){
+        alert(err)
+        setbools(false)
+
+    }
+
+}
+const verified=(all)=>{
+    alert(all)?setrendered("Home"):false
+}
 const countdown=()=>{
     let resend=document.querySelector(".resend");
     resend.style.pointerEvents="none";
@@ -32,7 +65,7 @@ const countdown=()=>{
   return (
     <>
     <div className="flexed">
-      {changenum?<Changenumb changenum={changenum} setchangenum={setchangenum}/>:false}
+      {changenum?<Changenumb changenum={changenum} setchangenum={setchangenum} temptoken={temptoken}/>:false}
         <div className="back" onClick={()=>{setrendered("Signup")}}><img className="backicon" src={back} alt=""  /></div>
         <div className="picotp" ><img src={otpimg} alt=""  /></div>
         <div className="verfiy">
@@ -48,30 +81,12 @@ const countdown=()=>{
         </div>
       
         <div  className="fournumb">
-            <div className="digits">
+            {Array(6).fill("").map((a,b)=>{return <div className="digits" key={b+""}>
                 <input  maxLength={1}  className="otpnumb"  type="tel" name="" id="" />
-            </div>
-            
-            <div className="digits">
-                <input  maxLength={1}  className="otpnumb"  type="tel" name="" id="" />
-            </div>
-            
-            <div className="digits">
-                <input  maxLength={1}  className="otpnumb"  type="tel" name="" id="" />
-            </div>
-            <div className="div">-</div>
-            <div className="digits">
-                <input  maxLength={1}  className="otpnumb"  type="tel" name="" id="" />
-            </div>
-            <div className="digits">
-                <input  maxLength={1}  className="otpnumb"  type="tel" name="" id="" />
-            </div>
-            <div className="digits">
-                <input  maxLength={1}  className="otpnumb"  type="tel" name="" id="" />
-            </div>
+            </div>})}
         </div>
         <div className="verbutton">
-            <div className="clickver" onClick={verifyOTP} > Verify</div>
+            <div className="clickver" onClick={verifyOTP} >{bools?"...":verbtn}</div>
             <div className="resend" onClick={countdown}>
                 <img src={resend} className="backicon" alt=""  /> 
                 <div className="resendtext">{(counter<0?0:counter)==10?"Resend":counter+"s ..waiting"} </div>

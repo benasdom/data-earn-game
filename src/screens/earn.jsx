@@ -15,6 +15,7 @@ const [gamefloor, setgamefloor] = useState(false)
 const [checking, setchecking] = useState(false)
 const [player, setplayer] = useState(false)
 const [playing, setplaying] = useState("")
+const [current, setcurrent] = useState("Earn")
 
 let gameup=
 [
@@ -47,7 +48,7 @@ useEffect(() => {
   
   return (
 <div className="pagecontent">
-<Topbar  setrendered={setrendered}/>
+<Topbar setrendered={setrendered} current={current}/>
 <div className="nextbar">
   <div className="coincentered">
   <div className="topcoin"><img className='topimgs' src={coin} alt="" srcset="" /></div>

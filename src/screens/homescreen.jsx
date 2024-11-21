@@ -8,6 +8,7 @@ import dp from '../assets/brown.jpg'
 function Homescreen({setthemed,themed,setrendered,rendered,currentuser}) {
     const [username, setusername] = useState("")
     const [dated, setdated] = useState("")
+    const [current, setcurrent] = useState("Home")
     const [earnedtoday, setearnedtoday] = useState("900")
     const [totalwatched, settotalwatched] = useState("")
     const [gbcurvetotal, setgbcurvetotal] = useState(2)
@@ -118,7 +119,7 @@ roamer.style.cssText=`left:${roam}%`
   return (
 <>
 <div className="pagecontent">
-<Topbar setrendered={setrendered}/>
+<Topbar setrendered={setrendered} current={current}/>
 <div className="homepagecontrol">
 
 <div className="welcome">

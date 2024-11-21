@@ -7,12 +7,14 @@ import copied from '../assets/copied.png'
 
 export default function Referals({setrendered}) {
 const [refered, setrefered] = useState(10)
+const [current, setcurrent] = useState("Referals")
+
 const [reflink, setreflink] = useState("https://cyberpay.com/34rjokresa")
   return (
     <>
 
 <div className="pagecontent">
-<Topbar setrendered={setrendered}/>
+<Topbar setrendered={setrendered} current={current}/>
 <div className="homepagecontrol">
 <div className="reffirstboxtop">
 <div className="reffirst">

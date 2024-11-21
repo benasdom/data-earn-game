@@ -7,7 +7,7 @@ import headlogo from '../assets/headlogo.png'
 import phonepic from '../assets/phone.png'
 
 
-export default function Signup({rendered,setrendered}) {
+export default function Signup({rendered,setrendered,settemptoken}) {
 const [email, setemail] = useState("")
 const [lastName, setlastName] = useState("")
 const [firstName, setfirstName] = useState("")
@@ -141,7 +141,9 @@ useEffect(() => {
     try{
         logged.id!=""
         ?localStorage.setItem("userInfo",JSON.stringify(logged))
-        :false
+        :false;
+        console.log(logged.accessToken)
+        settemptoken(logged.accessToken)
 
     }
     catch(err){err=>alert("Error",err)
