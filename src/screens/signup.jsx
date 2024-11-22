@@ -200,7 +200,7 @@ hasref?(
     remove referal section
 </div>
 <div className="inputs">
-<input className='input' type="tel" onChange={(e)=>setreferalcode(e.currentTarget.value)} placeholder='referal code...'  />
+<input className='input' type="text" onChange={(e)=>setreferalcode(e.currentTarget.value)} placeholder='referal code...'  />
 <div className="font"><img src={copy} className='copyimga'/></div>
 </div>
 
