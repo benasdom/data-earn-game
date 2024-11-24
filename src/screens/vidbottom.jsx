@@ -2,65 +2,35 @@ import React, { useState, useEffect } from 'react';
 import mine from '../assets/mine.png';
 import play from '../assets/play.png';
 import coin from '../assets/coin.png';
+import { fetchWithAuth } from './authfetch';
 
 export default function Vidbottom({setchecking,setplayer,setplaying,checking}) {
   const [mins, setMins] = useState("90");
   const [vidData, setVidData] = useState([]);
   const [newToken, setNewToken] = useState("");
   
-  const stored = JSON.parse(localStorage.getItem("userInfo"));
+  const storeddata = JSON.parse(localStorage.getItem("userInfo"));
   let url = 'https://cyberearn-staging.up.railway.app/api/v1/videos';
-  let accessToken = stored?.accessToken;
-  let refreshToken = stored?.refreshToken;
+  let accessToken = storeddata?.accessToken;
+  let refreshToken = storeddata?.refreshToken;
 
-  function fetchWithAuth(url, accessToken, refreshToken) {
-    return fetch(url, {
-      headers: { Authorization: `Bearer ${accessToken}` },
-    })
-      .then(response => {
-        if (response.status === 401) {
-          return refreshTokens(refreshToken)
-            .then(newAccessToken => fetchWithAuth(url, newAccessToken));
-        }
-        return response.json();
-      })
-      .then(data => {
-        setVidData(data.data.videos);
-        console.log(data)
-      })
-      .catch(error => console.error("Error fetching videos"));
-  }
 
-  function refreshTokens(refreshToken) {
-    return fetch("https://cyberearn-staging.up.railway.app/api/v1/auth/refresh", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ refreshToken }),
-    })
-      .then(response => {
-        if (!response.ok) throw new Error("Failed to refresh token");
-        return response.json();
-      })
-      .then(data => {
-        const newAccessToken = data.data.token;
-        setNewToken(newAccessToken);
-        return newAccessToken;
-      })
-      .catch(error => {
-        console.error("Error refreshing token:", error);
-        throw error;
-      });
-  }
+
+
   const activatePlayer=(itemUrl)=>{
     setplaying(itemUrl)
     setplayer(true)
   }
+  const options={
+    headers: { Authorization: `Bearer ${accessToken}` }
+  }
+
 
   useEffect(() => {
     if (accessToken && refreshToken) {
-      fetchWithAuth(url, accessToken, refreshToken);
+      fetchWithAuth(url,options,refreshToken,(data)=>{setVidData(data.videos)})
     }
-  }, [url, accessToken, refreshToken]);
+  }, [url]);
 
   return (
     <div className="comp">

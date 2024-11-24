@@ -21,7 +21,7 @@ export default function Verfiy({rendered,setrendered, temptoken}) {
         inp.forEach((input, index) => {
           // Move focus to the next input after typing a number
           input.addEventListener("input", (e) => {
-            const value = e.target.value;
+            const value = e.target.value+"";
             if (value.length > 1) {
               // Handle autofill scenario
               const otp = value.split("");
@@ -89,8 +89,11 @@ const checkissue=()=>{
 const activateuser=()=>{
     try{
         let loaded=localStorage.getItem("tempuserInfo");
-        localStorage.setItem("userInfo",loaded);
-        setrendered("Home")
+        let finaldata=localStorage.setItem("userInfo",loaded);
+        if(finaldata!=null && loaded !=null){
+          setrendered("Home")
+
+        }
     }
     catch(err){
     alert(err)

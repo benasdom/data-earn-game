@@ -46,8 +46,8 @@ const [reflink, setreflink] = useState("https://cyberpay.com/34rjokresa")
     {`You have (${refered}) referals`}
 </div>
 <div className="refthird">
- {Array(10).fill("").map(a=>(
-   <div className='friendbox'>
+ {Array(10).fill("").map((a,b)=>(
+   <div key={b+""} className='friendbox'>
     <div className="frienditem1">
         <img className='refimg' src={wayne} alt="" srcset="" />
     </div>
