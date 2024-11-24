@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Topbar from './topbar'
 import ref from '../assets/ref.png'
 import wayne from '../assets/wayne.jpg'
@@ -9,7 +9,18 @@ export default function Referals({setrendered}) {
 const [refered, setrefered] = useState(10)
 const [current, setcurrent] = useState("Referals")
 
-const [reflink, setreflink] = useState("https://cyberpay.com/34rjokresa")
+const [reflink, setreflink] = useState("cyberpay.com/")
+let cred=JSON.parse(localStorage.getItem("userInfo"))
+let refcode= cred?.userReferalCode
+
+useEffect(() => {
+  if(refcode){
+    setreflink(`cyberpay.com/${refcode}`)
+  }
+  else{false}
+  
+}, [])
+
   return (
     <>
 
