@@ -96,6 +96,24 @@ console.log(localStorage.useractivedate)
         }    
     } else if (difference === 0) {
       console.log("maintaining")
+      if (userscore == 0){
+        if (accessToken && refreshToken && typeof(userscore)=="number") {
+          let options={
+            method:"POST",
+            headers:{"Content-Type":"application/json","Authorization":`Bearer ${accessToken}`},
+            body:JSON.stringify({streakScore:1})
+          }
+          fetchWithAuth(url,options,refreshToken,(data)=>{
+            let useractivedate=storeddata.useractivedate
+            try{localStorage.setItem("userInfo",JSON.stringify({...data,accessToken,refreshToken,useractivedate}))}
+            catch(err){alert(err)}
+  
+            })
+        }
+      }
+      else{
+        false
+      }
 
         false
     }
