@@ -12,9 +12,9 @@ function App() {
   return (
  <>
  {/* <Login/> */}
- {/* <Platform/> */}
+ <Platform/>
  {/* <Profile/> */}
- <Verfiy/>
+ {/* <Verfiy/> */}
  </>
   )
 }
