@@ -89,11 +89,8 @@ const checkissue=()=>{
 const activateuser=()=>{
     try{
         let loaded=localStorage.getItem("tempuserInfo");
-        let finaldata=localStorage.setItem("userInfo",loaded);
-        if(finaldata!=null && loaded !=null){
+        localStorage.setItem("userInfo",loaded);
           setrendered("Home")
-
-        }
     }
     catch(err){
     alert(err)
