@@ -30,34 +30,38 @@ let url = 'https://cyberearn-staging.up.railway.app/api/v1/user/streak';
   }, []);
   
 const transformdata=()=>{
-  let olddate=streaks.date;
+  let newdate=streaks.date;
   if(storeddata.useractivedate != null){
-    let predate=new Date(storeddata.useractivedate[0])
-    let todate=new Date(storeddata.useractivedate[1])
+    let predate=new Date((storeddata.useractivedate[0].split(/T/gim)[0]))
+    let todate=new Date((storeddata.useractivedate[1].split(/T/gim)[0]))
     let diffInDays=Math.floor((todate - predate) / (1000 * 60 * 60 * 24))
     if(diffInDays > 0){
-      localStorage.setItem("userInfo",JSON.stringify({...storeddata,useractivedate:[...useractivedate,olddate].slice(-2)}))
-console.log(localStorage.useractivedate)
+      localStorage.setItem("userInfo",JSON.stringify({...storeddata,useractivedate:[...useractivedate,newdate].slice(-2)}))
+      console.log(localStorage.useractivedate)
+      console.log("There was a difference so the dates were updated")
+    }
+    else{
+      console.log("There was no updates made to the date array")
+      ;}}
+  else{
+    if(storeddata.lastLogin){
+      let lastvalidlogin=storeddata.lastLogin;
+      let olddate=new Date(lastvalidlogin.split(/T/gim)[0])
+      localStorage.setItem("userInfo",JSON.stringify({...storeddata,useractivedate:[olddate,newdate].slice(-2)}));
 
     }
     else{
-      false;
+      alert("Welcome to cyber earn 🥳🥳🥂")
 
     }
-
-
-  }
-  else{
-    localStorage.setItem("userInfo",JSON.stringify({...storeddata,useractivedate:[olddate,olddate].slice(-2)}));
-    console.log("This message should be seen only once by a user")
 
   }
   setTimeout(updateStreakToOne, 2000);
 }
   const updateStreakToOne=()=>{
     console.log(storeddata)
-    let current=new Date(streaks.date);
-    let lastAction = new Date(storeddata.useractivedate[0]);
+    let current=new Date((streaks.date.split(/T/gim)[0]));
+    let lastAction = new Date((storeddata.useractivedate[0].split(/T/gim)[0]));
     let difference=Math.floor((current - lastAction) / (1000 * 60 * 60 * 24))
     console.log(current)
     console.log(lastAction)
@@ -77,6 +81,7 @@ console.log(localStorage.useractivedate)
           let useractivedate=storeddata.useractivedate
           try{localStorage.setItem("userInfo",JSON.stringify({...data,accessToken,refreshToken,useractivedate}))}
           catch(err){alert(err)}
+          console.log(JSON.parse(localStorage.getItem("userInfo")))
 
           })
       }    } else if (difference > 1) {
