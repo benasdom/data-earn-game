@@ -30,17 +30,18 @@ let url = 'https://cyberearn-staging.up.railway.app/api/v1/user/streak';
   }, []);
   
 const transformdata=()=>{
-  let newdate=streaks.date;
+  let newdate=new Date((streaks.date.split(/T/gim)[0]));
   if(storeddata.useractivedate != null){
-    let predate=new Date((storeddata.useractivedate[0].split(/T/gim)[0]))
-    let todate=new Date((storeddata.useractivedate[1].split(/T/gim)[0]))
-    let diffInDays=Math.floor((todate - predate) / (1000 * 60 * 60 * 24))
+    let useractivedate=storeddata.useractivedate
+    let predate=new Date((useractivedate[1].split(/T/gim)[0]))
+    let diffInDays=Math.floor((newdate - predate) / (1000 * 60 * 60 * 24))
     if(diffInDays > 0){
-      localStorage.setItem("userInfo",JSON.stringify({...storeddata,useractivedate:[...useractivedate,newdate].slice(-2)}))
-      console.log(localStorage.useractivedate)
+    updateStreakToOne(diffInDays,useractivedate,newdate);
       console.log("There was a difference so the dates were updated")
     }
     else{
+      updateStreakToOne(diffInDays);
+
       console.log("There was no updates made to the date array")
       ;}}
   else{
@@ -48,26 +49,19 @@ const transformdata=()=>{
       let lastvalidlogin=storeddata.lastLogin;
       let olddate=new Date(lastvalidlogin.split(/T/gim)[0])
       localStorage.setItem("userInfo",JSON.stringify({...storeddata,useractivedate:[olddate,newdate].slice(-2)}));
-
+      console.log("useractive data didnt exist so just updating it")
     }
     else{
       alert("Welcome to cyber earn 🥳🥳🥂")
+      console.log("I think we need to update datas")
+
 
     }
 
   }
-  setTimeout(updateStreakToOne, 2000);
 }
-  const updateStreakToOne=()=>{
-    console.log(storeddata)
-    let current=new Date((streaks.date.split(/T/gim)[0]));
-    let lastAction = new Date((storeddata.useractivedate[0].split(/T/gim)[0]));
-    let difference=Math.floor((current - lastAction) / (1000 * 60 * 60 * 24))
-    console.log(current)
-    console.log(lastAction)
-    console.log(difference)
-    // if(difference)
-    if (difference === 1) {
+  const updateStreakToOne=(val,useractivedates,freshdate)=>{
+    if (val === 1) {
     console.log("incrementing")
 
 
@@ -78,13 +72,13 @@ const transformdata=()=>{
           body:JSON.stringify((userscore ==0)?{streakScore:1}:{streakScore:userscore+1})
         }
         fetchWithAuth(url,options,refreshToken,(data)=>{
-          let useractivedate=storeddata.useractivedate
-          try{localStorage.setItem("userInfo",JSON.stringify({...data,accessToken,refreshToken,useractivedate}))}
+          try{
+            localStorage.setItem("userInfo",JSON.stringify({...data,accessToken,refreshToken,useractivedate:[...useractivedates,freshdate].slice(-2)}))}
           catch(err){alert(err)}
           console.log(JSON.parse(localStorage.getItem("userInfo")))
 
           })
-      }    } else if (difference > 1) {
+      }    } else if (val > 1) {
         console.log("resetting")
 
         if (accessToken && refreshToken && typeof(userscore)=="number") {
@@ -94,12 +88,12 @@ const transformdata=()=>{
             body:JSON.stringify({streakScore:1})
           }
           fetchWithAuth(url,options,refreshToken,(data)=>{
-            let useractivedate=storeddata.useractivedate
-            try{localStorage.setItem("userInfo",JSON.stringify({...data,accessToken,refreshToken,useractivedate}))}
-            catch(err){alert(err)}
+              try{
+                localStorage.setItem("userInfo",JSON.stringify({...data,accessToken,refreshToken,useractivedate:[...useractivedates,freshdate].slice(-2)}))}
+                catch(err){alert(err)}
           })
         }    
-    } else if (difference === 0) {
+    } else if (val === 0) {
       console.log("maintaining")
       if (userscore == 0){
         if (accessToken && refreshToken && typeof(userscore)=="number") {
@@ -109,9 +103,9 @@ const transformdata=()=>{
             body:JSON.stringify({streakScore:1})
           }
           fetchWithAuth(url,options,refreshToken,(data)=>{
-            let useractivedate=storeddata.useractivedate
-            try{localStorage.setItem("userInfo",JSON.stringify({...data,accessToken,refreshToken,useractivedate}))}
-            catch(err){alert(err)}
+              try{
+                localStorage.setItem("userInfo",JSON.stringify({...data,accessToken,refreshToken,useractivedate:[...useractivedates,freshdate].slice(-2)}))}
+                catch(err){alert(err)}
   
             })
         }
