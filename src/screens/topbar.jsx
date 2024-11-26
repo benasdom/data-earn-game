@@ -47,8 +47,10 @@ const transformdata=()=>{
   else{
     if(storeddata.lastLogin){
       let lastvalidlogin=storeddata.lastLogin;
-      let olddate=new Date(lastvalidlogin.split(/T/gim)[0])
-      localStorage.setItem("userInfo",JSON.stringify({...storeddata,useractivedate:[olddate,newdate].slice(-2)}));
+      let olddate=new Date((lastvalidlogin.split(/T/gim)[0]))
+      let prevolddated=[olddate]
+      let diffed=Math.floor((newdate - olddate) / (1000 * 60 * 60 * 24))
+      updateStreakToOne(diffed,prevolddated,newdate);
       console.log("useractive data didnt exist so just updating it")
     }
     else{
@@ -95,6 +97,8 @@ const transformdata=()=>{
         }    
     } else if (val === 0) {
       console.log("maintaining")
+  console.log(storeddata)
+
       if (userscore == 0){
         if (accessToken && refreshToken && typeof(userscore)=="number") {
           let options={
@@ -106,7 +110,6 @@ const transformdata=()=>{
               try{
                 localStorage.setItem("userInfo",JSON.stringify({...data,accessToken,refreshToken,useractivedate:[...useractivedates,freshdate].slice(-2)}))}
                 catch(err){alert(err)}
-  
             })
         }
       }
