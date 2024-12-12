@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import cyberearn from '../assets/cyberearn.png'
 import notify from '../assets/notify.png'
+import wayne from '../assets/wayne.jpg'
+import bob from '../assets/bob.jpg'
+import jessy from '../assets/jessy.jpg'
 import brown from '../assets/brown.jpg'
 import streak from '../assets/streak.png'
 import Profile from './profile'
@@ -11,15 +14,19 @@ import { fetchWithAuth } from './authfetch'
 export default function Topbar({setrendered}) {
   const [userscore, setuserscore] = useState(null)
   const [view, setview] = useState(false)
+  const [maxscore, setmaxscore] = useState(0)
   const [streaks, setstreaks] = useState({steakScore:"",date:""})
+  const [dp, setdp] = useState([bob,wayne,jessy,brown])
   const storeddata = JSON.parse(localStorage.getItem("userInfo"));
+  
 
   let accessToken = storeddata?.accessToken;
   let refreshToken = storeddata?.refreshToken;
-  // console.log(accessToken)
-let url = 'https://cyberearn-staging.up.railway.app/api/v1/user/streak';
+  let url = 'https://cyberearn-staging.up.railway.app/api/v1/user/streak';
 
   useEffect(() => {
+  storeddata?setmaxscore(storeddata?.highestStreakScore):false
+
 
     if (accessToken.length && refreshToken.length && typeof(userscore=="number")) {
       let options={
@@ -77,7 +84,7 @@ const transformdata=()=>{
           try{
             localStorage.setItem("userInfo",JSON.stringify({...data,accessToken,refreshToken,useractivedate:[...useractivedates,freshdate].slice(-2)}))}
           catch(err){alert(err)}
-          console.log(JSON.parse(localStorage.getItem("userInfo")))
+          // console.log(JSON.parse(localStorage.getItem("userInfo")))
 
           })
       }    } else if (val > 1) {
@@ -142,7 +149,7 @@ const transformdata=()=>{
       <Profile setrendered={setrendered} setcurrent={setview} current={view}/>
     </div>:false}
   <div className="topbar">
-  <div className="profile" onClick={()=>{setview(true)}}><img className="topimga" src={brown} alt="" /></div>
+  <div className="profile" onClick={()=>{setview(true)}}><img className="topimga" src={`${maxscore}`.length <4?dp[`${maxscore}`.length-1]:dp[3]} alt="" /></div>
   <div className="title"><img className="midimg" src={cyberearn} alt="" /><div className="ttext">CyberEarn<span title='streak score' className='streak'><img src={streak} className='strkimg'/>{userscore !=null?userscore:".."}</span></div></div>
   <div className="notice"><img className="topimg" src={notify} alt="" /></div>
 </div>

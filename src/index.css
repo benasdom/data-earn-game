@@ -754,6 +754,25 @@ height:100px;
 
   }
 }
+.refloader{
+  background-image:
+  linear-gradient(
+    90deg, rgba(255,255,255,.05),rgba(255,255,255,.14),rgba(255,255,255,.05)) !important;
+  background-size:630px 120px !important;
+  background-position:0 0;
+  animation:bgload 1.3s linear  infinite !important;
+  pointer-events:none !important;
+}
+
+@keyframes refbgload{
+  0%{
+    background-position:0 0;
+  }
+100%{
+  background-position:200% 0;
+
+  }
+}
 .vidplayer{
   position:fixed;
   height:100vh;

@@ -18,7 +18,7 @@ const [logged, setlogged] = useState({
 })
 const [password, setpassword] = useState("")
 const [confirmpassword, setconfirmpassword] = useState("")
-const [referalcode, setreferalcode] = useState("")
+const [referalCode, setreferalCode] = useState("")
 const [msisdn, setmsisdn] = useState("")
 const [hasref, sethasref] = useState(false)
 const [showing, setshowing] = useState(false)
@@ -109,7 +109,7 @@ return false;
   
 const authenticate= ()=>{
     let id =`${new Date().getTime()}`
-    let payloadData={email,msisdn,firstName,lastName,password,referalcode}
+    let payloadData={email,msisdn,firstName,lastName,password,referalCode}
     const options = {
         method: 'POST',
         headers: {
@@ -200,7 +200,7 @@ hasref?(
     remove referal section
 </div>
 <div className="inputs">
-<input className='input' type="text" onChange={(e)=>setreferalcode(e.currentTarget.value)} placeholder='referal code...'  />
+<input className='input' type="text" onChange={(e)=>setreferalCode(e.currentTarget.value)} placeholder='referal code...'  />
 <div className="font"><img src={copy} className='copyimga'/></div>
 </div>
 

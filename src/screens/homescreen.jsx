@@ -2,17 +2,22 @@ import React, { memo, useEffect, useLayoutEffect, useState } from 'react'
 import Topbar from './topbar'
 import coinstacked from '../assets/coinstacked.png'
 import shovel from '../assets/shovel.png'
-import dp from '../assets/brown.jpg'
+import wayne from '../assets/wayne.jpg'
+import bob from '../assets/bob.jpg'
+import jessy from '../assets/jessy.jpg'
+import brown from '../assets/brown.jpg'
 
 
 function Homescreen({setthemed,themed,setrendered,rendered,currentuser}) {
     const [username, setusername] = useState("")
+    const [maxscore, setmaxscore] = useState(0)
     const [dated, setdated] = useState("")
     const [current, setcurrent] = useState("Home")
     const [earnedtoday, setearnedtoday] = useState("900")
     const [totalwatched, settotalwatched] = useState("")
     const [gbcurvetotal, setgbcurvetotal] = useState(2)
     const [toggled, settoggled] = useState(false)
+    const [dp, setdp] = useState([bob,wayne,jessy,brown])
     const [gbused, setgbused] = useState(0)
     const [gbremaining, setgbremaining] = useState(1.8)
     const [mounted, setmounted] = useState(false)
@@ -23,6 +28,7 @@ let datestring=`${new Date()}`.split(" ")
 setdated((`${datestring[2]} ${datestring[1]} ${datestring[3]}`))
 let stored=localStorage.getItem("userInfo");
 stored!=null?setusername((JSON.parse(stored).firstName)):false
+stored!=null?setmaxscore((JSON.parse(stored).highestStreakScore)):false
 
     return ()=>{
     let usedup=((gbremaining/gbcurvetotal)*100);
@@ -120,7 +126,7 @@ roamer.style.cssText=`left:${roam}%`
   return (
 <>
 <div className="pagecontent">
-<Topbar setrendered={setrendered} current={current}/>
+<Topbar maxscore={maxscore} setrendered={setrendered} current={current}/>
 <div className="homepagecontrol">
 
 <div className="welcome">
@@ -138,7 +144,7 @@ roamer.style.cssText=`left:${roam}%`
     </div>
 </div>
 <div className="userhomepic">
-    <img src={dp} className="headshot"/>
+    <img src={`${maxscore}`.length <4?dp[`${maxscore}`.length-1]:dp[3]} className="headshot"/>
 </div>
 <div className="earnedtoday">
     <div className="earnleft">

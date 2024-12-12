@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import notify from '../assets/notify.png'
 import back from '../assets/back.png'
+import wayne from '../assets/wayne.jpg'
+import bob from '../assets/bob.jpg'
+import jessy from '../assets/jessy.jpg'
 import brown from '../assets/brown.jpg'
 import cam from '../assets/cam.png'
 import extra from '../assets/extra.png'
@@ -18,11 +21,13 @@ const [profilemail, setprofilemail] = useState("")
 const [profilename, setprofilename] = useState("")
 const [profilephone, setprofilephone] = useState("")
 const [indics, setindics] = useState(false)
+const [dp, setdp] = useState([bob,wayne,jessy,brown])
 const [profiledate, setprofiledate] = useState("")
 const [agree, setagree] = useState(" Wish to logout ?")
 const [profilverified, setprofilverified] = useState("")
 const stored=JSON.parse(localStorage.getItem("userInfo"))
 const [curuser, setcuruser] = useState(stored)
+const [maxscore, setmaxscore] = useState(0)
 
 useEffect(() => {
     const today=`${new Date(curuser?curuser.dateCreated:null)}`.split(" ")
@@ -37,6 +42,8 @@ useEffect(() => {
     curuser?setprofilverified(curuser.isVerified?"Successfull":"Not Verified"):false
     // curuser?setprofiledate(`${curuser.dated[2]} ${curuser.dated[1]} ${curuser.dated[3]}`):false
     curuser?setprofiledate(`${parse} ${today[1]}, ${today[3]}`):false
+    curuser?setmaxscore(curuser.highestStreakScore):false
+
 }, [curuser])
 const logout=()=>{
     setindics(true)
@@ -75,7 +82,7 @@ const exits=()=>{
 </div>
 <div className="editimg">
     <div className="profpics">
-    <img src={brown} alt=""  className="userimg" />
+    <img src={`${maxscore}`.length <4?dp[`${maxscore}`.length-1]:dp[3]} alt=""  className="userimg" />
     <img src={cam} alt=""  className="camimg" />
 
     </div>
