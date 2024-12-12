@@ -73,7 +73,7 @@ useEffect(() => {
     <div className="toproamer">
     </div>
     <div className="vidgame"  onClick={untrig}>Videos</div>
-    <div className="vidgame"  onClick={trig}>Games</div>
+    <div className="vidgame"  onClick={trig}>Take survey</div>
   </div>
   <div className="fvrow">
   {gamefloor?<Gamebottom setplayer={setplayer} setplaying={setplaying}  setchecking={setchecking} />
