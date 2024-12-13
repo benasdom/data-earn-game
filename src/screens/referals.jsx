@@ -13,14 +13,16 @@ export default function Referals({setrendered}) {
 const [refered, setrefered] = useState([])
 const [current, setcurrent] = useState("Referals")
 const [dp, setdp] = useState([bob,wayne,jessy,brown])
+const [copymessage, setcopymessage] = useState("")
+const [loaded, setloaded] = useState(false)
 
-const [reflink, setreflink] = useState("cyberpay.com/")
+const [reflink, setreflink] = useState("********")
 let cred=JSON.parse(localStorage.getItem("userInfo"))
 let refcode= cred?.userReferalCode
 
 useEffect(() => {
   if(refcode){
-    setreflink(`cyberpay.com/${refcode}`)}
+    setreflink(`${refcode}`)}
   else{false}
 }, [])
 
@@ -34,14 +36,22 @@ useEffect(() => {
 
   useEffect(() => {
     if (accessToken && refreshToken) {
-      fetchWithAuth(url,options,refreshToken,(data)=>{setrefered(data)})
+      fetchWithAuth(url,options,refreshToken,(data)=>{setrefered(data);setloaded(true)})
     }
   }, [url]);
+
+  const copyreflink= ()=>{
+    navigator.clipboard.writeText(reflink)
+    setcopymessage("✔️  copied successfully !!! 🥳🥳🥳")
+    setTimeout(() => {
+      setcopymessage("")
+    }, 2000);
+  }
   return (
     <>
 
 <div className="pagecontent">
-<Topbar setrendered={setrendered} current={current}/>
+<Topbar setrendered={setrendered} successmessage={copymessage} current={current}/>
 <div className="homepagecontrol">
 <div className="reffirstboxtop">
 <div className="reffirst">
@@ -57,9 +67,9 @@ useEffect(() => {
     <img className='rfchildimg' src={ref} alt="" />
 </div>
 </div>
-<div className="refcode"> 
+<div className="refcode" onClick={copyreflink}> 
   <div className="reflink">
-    <div className="reflink0">
+    <div className="reflink0" >
       Referal Code
     </div>
     <div className="reflink1">
@@ -86,7 +96,7 @@ useEffect(() => {
    </div>
  )))
  :
- (Array(3).fill("").map((a,b)=>(
+ !loaded && (Array(3).fill("").map((a,b)=>(
    <div key={b+""} className='friendbox refloader'>
     <div className="frienditem1 ">
         <img className='refimg vanish' src={wayne} alt="" srcset="" />

@@ -76,7 +76,7 @@ const exits=()=>{
 
         <div className="topbar2">
   <div className="back2" onClick={goback}><img className="backicon3" src={back} alt=""  /></div>
-  <div className="title2"><div className="ttext2">~ {profilename.length>17?`${profilename.slice(0,15)}.`:profilename}
+  <div className="title2"><div className="ttext2">~ {profilename.length>17?`${profilename.slice(0,15)}.`:profilename+" "}
   ~</div></div>
   <div className="notice2"><img className="topimg" src={notify} alt="" /></div>
 </div>

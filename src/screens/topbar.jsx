@@ -11,7 +11,7 @@ import { fetchWithAuth } from './authfetch'
 // import {updateStreakScore } from './streakscore'
 
 
-export default function Topbar({setrendered}) {
+export default function Topbar({setrendered,successmessage}) {
   const [userscore, setuserscore] = useState(null)
   const [view, setview] = useState(false)
   const [maxscore, setmaxscore] = useState(0)
@@ -148,9 +148,10 @@ const transformdata=()=>{
    { view?<div className="abs2">
       <Profile setrendered={setrendered} setcurrent={setview} current={view}/>
     </div>:false}
+  {successmessage?<div className="successmessage">{successmessage}</div>:false}
   <div className="topbar">
   <div className="profile" onClick={()=>{setview(true)}}><img className="topimga" src={`${maxscore}`.length <4?dp[`${maxscore}`.length-1]:dp[3]} alt="" /></div>
-  <div className="title"><img className="midimg" src={cyberearn} alt="" /><div className="ttext">CyberEarn<span title='streak score' className='streak'><img src={streak} className='strkimg'/>{userscore !=null?userscore:".."}</span></div></div>
+  <div className="title"><img className="midimg" src={cyberearn} alt="" /><div className="ttext">CyberEarn<span title='streak score' className='streak'><img src={streak} className='strkimg'/>{userscore !=null?userscore:""}</span></div></div>
   <div className="notice"><img className="topimg" src={notify} alt="" /></div>
 </div>
     </>

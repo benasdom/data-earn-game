@@ -147,6 +147,9 @@ button:focus-visible {
     -o-aspect-ratio: 1/.7 !important;
     aspect-ratio: 1/.7 !important;
   }
+  .refimg{
+    height:60px !important;
+  }
   .paths{
     background:none !important;
     opacity:.1 !important;
@@ -681,10 +684,10 @@ height:100px;
   display:flex;
   align-items: center;
   width:70%;
-  font-size: 13px;
+  font-size: 14px;
+  font-weight:500;
   margin-bottom: 2px;
   color:white;
-  letter-spacing:1px;
   text-align:left;
   padding-left: 20px;
   border-radius: 10px;
@@ -754,6 +757,40 @@ height:100px;
 
   }
 }
+.successmessage{
+position:fixed;
+top:50px;
+background:#17191f;
+display:inline-flex;
+width:300px;
+margin:auto;
+justify-content: center;
+align-items: center;
+color:lightgrey;
+font-size:15px;
+border-radius:10px;
+font-weight:600;
+box-shadow:0px 0px 50px rgba(0, 0, 0, 0.909);
+border:5px solid #232222;
+height:40px;
+z-index:20000;
+animation:pop 2s ease-in-out forwards;
+}
+@keyframes pop{
+  0%,100%{
+    opacity:0;
+    top:0px;
+
+  }
+  20%,80%{
+    opacity:1;
+    top:20px;
+
+
+  }
+}
+
+
 .refloader{
   background-image:
   linear-gradient(
@@ -1229,7 +1266,7 @@ width:100%;
  }
  .ptextright{
   color:white;
-  font-size: 12px;
+  font-size: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
